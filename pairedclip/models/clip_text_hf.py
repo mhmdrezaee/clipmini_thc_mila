@@ -17,11 +17,14 @@ class CLIPTextEncoderHF(torch.nn.Module):
 
     @torch.no_grad()
     def encode_prompts(self, prompts, device, batch_size: int = 256):
+        # make sure the HF CLIP model lives on the same device as the tokens
+        self.model = self.model.to(device).eval()
+
         zs = []
         for i in range(0, len(prompts), batch_size):
-            batch = prompts[i:i+batch_size]
+            batch = prompts[i:i + batch_size]
             toks = self.tokenizer(batch, padding=True, truncation=True, return_tensors="pt")
             toks = {k: v.to(device) for k, v in toks.items()}
-            z = self.model.get_text_features(**toks)  # (B, 512)
+            z = self.model.get_text_features(**toks)  # (B, 512) on the same device
             zs.append(F.normalize(z, dim=-1))
-        return torch.cat(zs, dim=0)  # (N, 512)
+        return torch.cat(zs, dim=0)

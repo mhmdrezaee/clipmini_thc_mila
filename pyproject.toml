@@ -10,12 +10,13 @@ packages = [{ include = "clipmini" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-torch = "^2.2.0"
-torchvision = "^0.17.0"
+torch = "2.8"
 numpy = "^1.26.0"
 matplotlib = "^3.8.0"
 transformers = "^4.41.0"
 open-clip-torch = { version = "^2.24.0", optional = true }
+torchvision = "^0.23.0"
+safetensors = "^0.6.2"
 
 [tool.poetry.extras]
 clip = ["open-clip-torch"]
