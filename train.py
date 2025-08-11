@@ -96,7 +96,8 @@ def main():
             # Build prompts (on CPU), run CLIP text on CPU, return embeddings on GPU (safe & light)
             prompts = [f"The photo on the left is {ds.class_names[l]}, the photo on the right is {ds.class_names[r]}."
                        for l, r in zip(cL.tolist(), cR.tolist())]
-            tz = txt_enc.encode_prompts(prompts, run_on="cpu", target_device=device, batch_size=128)  # (B,512)
+            tz = txt_enc.encode_prompts(prompts, device="cpu", batch_size=128)  # run text on CPU
+            tz = tz.to(device, non_blocking=True)
 
             with torch.cuda.amp.autocast(enabled=cfg.amp):
                 iz = img_enc(imgs)  # (B,512)

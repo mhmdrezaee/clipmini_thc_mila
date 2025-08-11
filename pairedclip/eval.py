@@ -14,7 +14,8 @@ def evaluate_topk(model_img, clip_text_enc, device, class_names,
         for i in range(class_count) for j in range(class_count)
     ]
     # Encode text (batched)
-    all_txt = clip_text_enc.encode_prompts(prompts, device=device, batch_size=batch_prompts)  # (10000, D)
+    all_txt = clip_text_enc.encode_prompts(prompts, device="cpu", batch_size=batch_prompts)
+    all_txt = all_txt.to(device, non_blocking=True)
 
     # Eval dataset (train split, as per brief)
     eval_ds = PairedCIFAR100(root=root, train=True, size=size)
