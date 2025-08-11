@@ -7,7 +7,7 @@ def evaluate_topk(model_img, model_txt, device, class_count=100, k_list=(1,10,10
                   root="./data", size=1000, num_workers=4, eval_batches=None):
     # Precompute all caption embeddings (10k). If OpenCLIP encoder supports it, use its fast path.
     if hasattr(model_txt, "encode_all_pairs"):
-        all_txt = model_txt.encode_all_pairs(device=device)  # (10000, D)
+        all_txt = model_txt.encode_all_pairs(device=device, batch_size=256, run_on="cpu")
     else:
         # Fallback: tiny encoder builds from indices
         left  = torch.arange(class_count, device=device).unsqueeze(1).repeat(1, class_count).flatten()
