@@ -2,6 +2,9 @@ import torch
 import torch.nn.functional as F
 
 def contrastive_loss(img_z, txt_z, temperature=0.07):
+    """
+    Bidirectional InfoNCE-style contrastive loss over a batch.
+    """
     logits = img_z @ txt_z.t() / temperature
     labels = torch.arange(img_z.size(0), device=img_z.device)
     li2t = F.cross_entropy(logits, labels)
