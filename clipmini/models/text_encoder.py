@@ -57,36 +57,32 @@ class OpenClipTextEncoder(nn.Module):
         # freeze
         for p in self.model.parameters():
             p.requires_grad_(False)
-        self.model.eval()
+        self.model = self.model.to("cpu").eval()
 
         self.class_names = class_names or [str(i) for i in range(100)]
 
     @torch.no_grad()
-    def _encode_prompts(self, prompts, device, batch_size=256, run_on="cpu"):
-        # run_on: "cpu" or "cuda" — where OpenCLIP does the forward
-        model = self.model.to(run_on)
+    def _encode_prompts(self, prompts, target_device, batch_size=256):
         zs = []
         for i in range(0, len(prompts), batch_size):
             batch = prompts[i:i + batch_size]
-            toks = self.tokenizer(batch).to(run_on)
-            z = model.encode_text(toks)  # on CPU or CUDA
-            z = F.normalize(z, dim=-1).to(device)  # move to target device
+            toks = self.tokenizer(batch).to("cpu")
+            z = self.model.encode_text(toks)  # runs on CPU
+            z = F.normalize(z, dim=-1).to(target_device, non_blocking=True)
             zs.append(z)
         return torch.cat(zs, dim=0)
 
     @torch.no_grad()
-    def forward(self, left_idx, right_idx, batch_size=256, run_on="cpu"):
+    def forward(self, left_idx, right_idx, batch_size=256):
         L = [self.class_names[i] for i in left_idx.tolist()]
         R = [self.class_names[i] for i in right_idx.tolist()]
         prompts = [f"The photo on the left is {l}, the photo on the right is {r}."
                    for l, r in zip(L, R)]
-        return self._encode_prompts(prompts, device=left_idx.device,
-                                    batch_size=batch_size, run_on=run_on)
+        return self._encode_prompts(prompts, target_device=left_idx.device, batch_size=batch_size)
 
     @torch.no_grad()
-    def encode_all_pairs(self, device, batch_size=256, run_on="cpu"):
+    def encode_all_pairs(self, target_device, batch_size=256):
         names = self.class_names
         prompts = [f"The photo on the left is {names[i]}, the photo on the right is {names[j]}."
                    for i in range(len(names)) for j in range(len(names))]
-        return self._encode_prompts(prompts, device=device,
-                                    batch_size=batch_size, run_on=run_on)  # (10000, D)
+        return self._encode_prompts(prompts, target_device=target_device, batch_size=batch_size)  # (10000, D)

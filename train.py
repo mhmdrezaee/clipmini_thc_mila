@@ -88,8 +88,9 @@ def main():
             imgs, cL, cR = imgs.to(device), cL.to(device), cR.to(device)
 
             with torch.cuda.amp.autocast(enabled=cfg.amp):
-                iz = img_enc(imgs)
-                tz = txt_enc(cL, cR)  # frozen
+                iz = img_enc(imgs)  # on GPU
+                tz = txt_enc(cL.cpu(), cR.cpu())  # text encoding on CPU
+                tz = tz.to(iz.device, non_blocking=True)
                 loss = contrastive_loss(iz, tz, temperature=cfg.temperature)
 
             scaler.scale(loss / cfg.accum_steps).backward()
