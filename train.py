@@ -12,6 +12,8 @@ def set_seed(s):
     random.seed(s); torch.manual_seed(s); torch.cuda.manual_seed_all(s)
 
 def main():
+    print("Device:", "cuda" if torch.cuda.is_available() else "cpu", flush=True)
+
     p = argparse.ArgumentParser()
     p.add_argument("--data_root", type=str, default=None)
     p.add_argument("--epochs", type=int, default=None)
@@ -82,6 +84,8 @@ def main():
     for epoch in range(1, cfg.epochs + 1):
         # curriculum: early epochs enforce different superclasses (harder negatives)
         hard = (epoch <= cfg.curriculum_epochs)
+        print(f"Starting epoch {epoch} (hard={hard})", flush=True)
+
         ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000, different_superclass=hard)
         loader = DataLoader(ds, batch_size=cfg.batch_size, shuffle=True,
                             num_workers=cfg.num_workers, pin_memory=True, drop_last=True)
