@@ -12,8 +12,6 @@ def set_seed(s):
     random.seed(s); torch.manual_seed(s); torch.cuda.manual_seed_all(s)
 
 def main():
-    print("Device:", "cuda" if torch.cuda.is_available() else "cpu", flush=True)
-
     p = argparse.ArgumentParser()
     p.add_argument("--data_root", type=str, default=None)
     p.add_argument("--epochs", type=int, default=None)
@@ -41,6 +39,7 @@ def main():
 
     set_seed(cfg.seed)
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    print("Device:", "cuda" if torch.cuda.is_available() else "cpu", flush=True)
 
     # Data
     ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000)
