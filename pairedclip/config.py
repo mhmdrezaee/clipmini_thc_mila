@@ -10,6 +10,11 @@ class TrainConfig:
     temperature: float = 0.07
     seed: int = 42
     num_workers: int = 4
+    amp: bool = True
+    accum_steps: int = 4  # bigger effective batch
+    min_lr: float = 1e-6  # cosine floor
+    warmup_steps: int = 500  # linear warmup
+    curriculum_epochs: int = 3  # early epochs: harder negatives (diff superclasses)
 
     # model
     emb_dim: int = 512  # CLIP ViT-B/32 text dim = 512
