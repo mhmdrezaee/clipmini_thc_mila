@@ -53,6 +53,17 @@ def main():
                               depth=cfg.vit_depth, heads=cfg.vit_heads,
                               patch=cfg.vit_patch).to(device)
 
+    def build_caption_bank(txt_enc, class_names, device="cpu", batch_size=128):
+        prompts = [
+            f"The photo on the left is {class_names[i]}, the photo on the right is {class_names[j]}."
+            for i in range(100) for j in range(100)
+        ]
+        # run text on CPU, return CPU tensor; ~10k x 512 (~20MB fp32)
+        bank = txt_enc.encode_prompts(prompts, device=device, batch_size=batch_size)
+        return bank.cpu()  # keep on CPU
+
+    caption_bank = build_caption_bank(txt_enc, class_names, device="cpu", batch_size=128)
+
     # Learnable logit scale (init from temperature τ)
     logit_scale = torch.nn.Parameter(torch.tensor(math.log(1.0 / cfg.temperature), device=device))
 
@@ -99,8 +110,11 @@ def main():
             # Build prompts (on CPU), run CLIP text on CPU, return embeddings on GPU (safe & light)
             prompts = [f"The photo on the left is {ds.class_names[l]}, the photo on the right is {ds.class_names[r]}."
                        for l, r in zip(cL.tolist(), cR.tolist())]
-            tz = txt_enc.encode_prompts(prompts, device="cpu", batch_size=128)  # run text on CPU
-            tz = tz.to(device, non_blocking=True)
+
+            gt_idx = (cL.cpu() * 100 + cR.cpu())  # shape (B,)
+            tz = caption_bank[gt_idx].to(device, non_blocking=True)  # (B,512) on GPU
+            # tz = txt_enc.encode_prompts(prompts, device="cpu", batch_size=128)  # run text on CPU
+            # tz = tz.to(device, non_blocking=True)
 
             with torch.cuda.amp.autocast(enabled=cfg.amp):
                 iz = img_enc(imgs)  # (B,512)
