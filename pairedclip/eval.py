@@ -21,7 +21,7 @@ def evaluate_topk(model_img, clip_text_enc, device, class_names,
         all_txt = all_txt.to(device, non_blocking=True)
 
     # Eval dataset (train split, as per brief)
-    eval_ds = PairedCIFAR100(root=root, train=True, size=size)
+    eval_ds = PairedCIFAR100(root=root, train=True, size=size, different_superclass=False, augment=False)
     loader = DataLoader(eval_ds, batch_size=256, shuffle=False, num_workers=num_workers, pin_memory=True)
 
     correct = {k: 0 for k in k_list}

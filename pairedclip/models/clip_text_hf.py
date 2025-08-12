@@ -1,6 +1,8 @@
 import torch
 import torch.nn.functional as F
 from transformers import CLIPModel, AutoTokenizer
+from transformers import CLIPModel, AutoTokenizer
+
 
 class CLIPTextEncoderHF(torch.nn.Module):
     """
@@ -9,11 +11,16 @@ class CLIPTextEncoderHF(torch.nn.Module):
     """
     def __init__(self, model_id: str = "openai/clip-vit-base-patch32"):
         super().__init__()
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
-        self.model = CLIPModel.from_pretrained(model_id)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=True)
+        # ⬇️ force safetensors so no torch.load(.bin) happens
+        self.model = CLIPModel.from_pretrained(
+            model_id,
+            use_safetensors=True,   # <— important
+            torch_dtype=torch.float32,
+            local_files_only=False
+        ).eval()
         for p in self.model.parameters():
             p.requires_grad_(False)
-        self.model.eval()
 
     @torch.no_grad()
     def encode_prompts(self, prompts, device, batch_size: int = 256):

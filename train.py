@@ -30,6 +30,7 @@ def main():
     p.add_argument("--min_lr", type=float, default=None)
     p.add_argument("--warmup_steps", type=int, default=None)
     p.add_argument("--curriculum_epochs", type=int, default=None)
+    p.add_argument("--use_augs", type=int, default=None)
     args = p.parse_args()
 
     cfg = TrainConfig()
@@ -96,7 +97,7 @@ def main():
         hard = (epoch <= cfg.curriculum_epochs)
         print(f"Starting epoch {epoch} (hard={hard})", flush=True)
 
-        ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000, different_superclass=hard)
+        ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000, different_superclass=hard, augment=cfg.use_augs)
         loader = DataLoader(ds, batch_size=cfg.batch_size, shuffle=True,
                             num_workers=cfg.num_workers, pin_memory=True, drop_last=True)
 

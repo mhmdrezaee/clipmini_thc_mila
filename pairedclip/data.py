@@ -3,10 +3,28 @@ import torch
 from torch.utils.data import Dataset
 from torchvision import datasets, transforms
 
+# CIFAR-100 stats
 MEAN = (0.5071, 0.4866, 0.4409)
 STD  = (0.2673, 0.2564, 0.2762)
 
-def base_transform():
+def train_transform(augment: bool = True):
+    if not augment:
+        return transforms.Compose([transforms.ToTensor(), transforms.Normalize(MEAN, STD)])
+
+    # Light but effective for 32×32
+    return transforms.Compose([
+        transforms.RandomResizedCrop((32, 32), scale=(0.8, 1.0), ratio=(0.9, 1.1)),
+        transforms.RandomHorizontalFlip(p=0.5),       # flips each image independently (OK)
+        transforms.ColorJitter(0.2, 0.2, 0.2, 0.1),
+        transforms.RandomGrayscale(p=0.1),
+        # Optional extra punch (comment out if too slow/noisy):
+        # transforms.TrivialAugmentWide(),
+        transforms.ToTensor(),
+        transforms.Normalize(MEAN, STD),
+        transforms.RandomErasing(p=0.1, scale=(0.02, 0.2), value="random"),
+    ])
+
+def eval_transform():
     return transforms.Compose([transforms.ToTensor(), transforms.Normalize(MEAN, STD)])
 
 class PairedCIFAR100(Dataset):
@@ -16,15 +34,16 @@ class PairedCIFAR100(Dataset):
       cL, cR: left/right fine-label indices
 
     If different_superclass=True and coarse labels are available, enforce coarse_left != coarse_right.
-    If coarse labels aren't available in your torchvision, we fall back to fine_left != fine_right.
+    If coarse labels aren't available, fall back to fine_left != fine_right.
     """
-    def __init__(self, root="./data", train=True, size=20000, different_superclass: bool=False):
-        tfm = base_transform()
+    def __init__(self, root="./data", train=True, size=20000,
+                 different_superclass: bool=False, augment: bool=True):
+        tfm = train_transform(augment) if train else eval_transform()
         self.size = size
         self.different_superclass = different_superclass
-
         self.has_coarse = False
-        # Try the modern API first
+
+        # Try modern API with target_type; fall back gracefully
         try:
             self.base = datasets.CIFAR100(
                 root=root, train=train, download=True, transform=tfm,
@@ -32,9 +51,7 @@ class PairedCIFAR100(Dataset):
             )
             self.has_coarse = True
         except TypeError:
-            # Fallback: older torchvision (no target_type)
             self.base = datasets.CIFAR100(root=root, train=train, download=True, transform=tfm)
-            # Some builds still expose coarse_targets as a list attribute
             if hasattr(self.base, "coarse_targets"):
                 self.coarse_targets = self.base.coarse_targets
                 self.has_coarse = True
@@ -45,21 +62,20 @@ class PairedCIFAR100(Dataset):
         return self.size
 
     def _unpack(self, sample, index):
-        """Return (img, fine, coarse_or_minus1) for a sample that may or may not include coarse labels."""
-        if isinstance(sample[1], tuple):           # (fine, coarse) case
+        if isinstance(sample[1], tuple):           # (fine, coarse)
             img, (fine, coarse) = sample
-        else:                                      # fine-only case
+        else:                                      # fine only
             img, fine = sample
             coarse = self.coarse_targets[index] if self.has_coarse and hasattr(self, "coarse_targets") else -1
         return img, fine, coarse
 
     def __getitem__(self, idx):
-        # Left sample
+        # Left
         i1 = random.randrange(len(self.base))
         s1 = self.base[i1]
         img1, fine1, coarse1 = self._unpack(s1, i1)
 
-        # Right sample, with optional superclass constraint
+        # Right with optional superclass constraint
         tries = 0
         while True:
             i2 = random.randrange(len(self.base))
@@ -68,15 +84,12 @@ class PairedCIFAR100(Dataset):
 
             if not self.different_superclass:
                 break
-
-            # Prefer different coarse superclasses when available;
-            # otherwise fall back to different fine classes.
             if (self.has_coarse and coarse1 != coarse2) or (not self.has_coarse and fine1 != fine2):
                 break
-
             tries += 1
-            if tries > 20:   # escape hatch to avoid rare infinite loops
+            if tries > 20:
                 break
 
-        paired = torch.cat([img1, img2], dim=2)  # (3,32,64)
+        # IMPORTANT: transforms already applied per-image above; now just stitch
+        paired = torch.cat([img1, img2], dim=2)  # (3, 32, 64)
         return paired, fine1, fine2

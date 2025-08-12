@@ -4,7 +4,7 @@ from dataclasses import dataclass
 class TrainConfig:
     data_root: str = "./data"
     batch_size: int = 256
-    epochs: int = 10
+    epochs: int = 20
     lr: float = 5e-4
     weight_decay: float = 0.05
     temperature: float = 0.07
@@ -14,7 +14,8 @@ class TrainConfig:
     accum_steps: int = 4  # bigger effective batch
     min_lr: float = 1e-6  # cosine floor
     warmup_steps: int = 500  # linear warmup
-    curriculum_epochs: int = 3  # early epochs: harder negatives (diff superclasses)
+    curriculum_epochs: int = 10  # early epochs: harder negatives (diff superclasses)
+    use_augs: bool = True
 
     # model
     emb_dim: int = 512  # CLIP ViT-B/32 text dim = 512
