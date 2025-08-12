@@ -32,3 +32,17 @@ class TrainConfig:
     # eval
     eval_size: int = 2000     # quick pass while iterating
     eval_batches: int | None = None  # None = all
+
+    # ==== loss tuning ====
+    use_swap_margin: bool = True
+    swap_margin: float = 0.10  # hinge margin between pos vs. swapped
+    swap_weight: float = 0.5  # weight for swap hinge term
+
+    use_partial_softmax: bool = True
+    partial_m: int = 8  # # semi-hard negatives per sample
+    partial_weight: float = 1.0  # weight for partial softmax term
+
+    label_smoothing_eps: float = 0.0  # 0.05 is a good start; 0.0 disables
+
+    reg_logit_scale_weight: float = 0.0  # e.g., 1e-4 to gently center logit_scale
+    reg_logit_scale_tau: float = 0.07  # center at log(1/τ)

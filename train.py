@@ -44,6 +44,19 @@ def parse_args():
     p.add_argument("--warmup_steps", type=int, default=None)
     p.add_argument("--curriculum_epochs", type=int, default=None)
     p.add_argument("--use_augs", type=int, default=None)
+
+    p.add_argument("--use_swap_margin", type=int, default=None)  # 1/0
+    p.add_argument("--swap_margin", type=float, default=None)
+    p.add_argument("--swap_weight", type=float, default=None)
+
+    p.add_argument("--use_partial_softmax", type=int, default=None)  # 1/0
+    p.add_argument("--partial_m", type=int, default=None)
+    p.add_argument("--partial_weight", type=float, default=None)
+
+    p.add_argument("--label_smoothing_eps", type=float, default=None)
+
+    p.add_argument("--reg_logit_scale_weight", type=float, default=None)
+    p.add_argument("--reg_logit_scale_tau", type=float, default=None)
     return p.parse_args()
 
 def main():
