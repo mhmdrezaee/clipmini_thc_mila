@@ -4,26 +4,73 @@ from torch.utils.data import Dataset
 from torchvision import datasets, transforms
 
 # CIFAR-100 stats
-MEAN = (0.5071, 0.4866, 0.4409)
-STD  = (0.2673, 0.2564, 0.2762)
+CIFAR_MEAN = (0.5071, 0.4866, 0.4409)
+CIFAR_STD  = (0.2673, 0.2564, 0.2762)
 
-def train_transform(augment: bool = True):
-    if not augment:
-        return transforms.Compose([transforms.ToTensor(), transforms.Normalize(MEAN, STD)])
+def train_transform_by_policy(policy: str):
+    # All ops are per-image (left/right independently), preserving order semantics.
+    if policy == "none":
+        return transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+        ])
 
-    # Light but effective for 32×32
-    return transforms.Compose([
-        transforms.RandomCrop(32, padding=4, padding_mode="reflect"),
-        transforms.RandomResizedCrop((32, 32), scale=(0.8, 1.0), ratio=(0.9, 1.1)),
-        transforms.RandomHorizontalFlip(p=0.5),       # flips each image independently (OK)
-        transforms.ColorJitter(0.2, 0.2, 0.2, 0.1),
-        transforms.RandomGrayscale(p=0.1),
-        # Optional extra punch (comment out if too slow/noisy):
-        transforms.TrivialAugmentWide(),
-        transforms.ToTensor(),
-        transforms.Normalize(MEAN, STD),
-        transforms.RandomErasing(p=0.1, scale=(0.02, 0.2), value="random"),
-    ])
+    if policy == "light_basic":
+        return transforms.Compose([
+            transforms.RandomCrop(32, padding=2, padding_mode="reflect"),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+        ])
+
+    if policy == "light_color":
+        return transforms.Compose([
+            transforms.RandomCrop(32, padding=2, padding_mode="reflect"),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ColorJitter(0.1, 0.1, 0.05, 0.0),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+        ])
+
+    if policy == "light_blur":
+        return transforms.Compose([
+            transforms.RandomCrop(32, padding=2, padding_mode="reflect"),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 0.5)),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+        ])
+
+    if policy == "light_erase":
+        return transforms.Compose([
+            transforms.RandomCrop(32, padding=2, padding_mode="reflect"),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+            transforms.RandomErasing(p=0.10, scale=(0.02, 0.08), value="random"),
+        ])
+
+    if policy == "light_all":
+        return transforms.Compose([
+            transforms.RandomCrop(32, padding=2, padding_mode="reflect"),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ColorJitter(0.1, 0.1, 0.05, 0.0),
+            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 0.5)),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+            transforms.RandomErasing(p=0.10, scale=(0.02, 0.08), value="random"),
+        ])
+
+    # very minimal scale/translate (optional)
+    if policy == "light_rrc":
+        return transforms.Compose([
+            transforms.RandomResizedCrop((32, 32), scale=(0.90, 1.0), ratio=(0.95, 1.05)),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.ToTensor(),
+            transforms.Normalize(CIFAR_MEAN, CIFAR_STD),
+        ])
+
+    raise ValueError(f"Unknown aug_policy: {policy}")
 
 def eval_transform():
     return transforms.Compose([transforms.ToTensor(), transforms.Normalize(MEAN, STD)])
@@ -38,13 +85,16 @@ class PairedCIFAR100(Dataset):
     If coarse labels aren't available, fall back to fine_left != fine_right.
     """
     def __init__(self, root="./data", train=True, size=20000,
-                 different_superclass: bool=False, augment: bool=True):
-        tfm = train_transform(augment) if train else eval_transform()
+                 different_superclass: bool=False, augment: bool=True, aug_policy: str='light_basic'):
+
         self.size = size
         self.different_superclass = different_superclass
         self.has_coarse = False
-
-        # Try modern API with target_type; fall back gracefully
+        if train:
+            tfm = train_transform_by_policy(aug_policy if augment else "none")
+        else:
+            tfm = eval_transform
+            # Try modern API with target_type; fall back gracefully
         try:
             self.base = datasets.CIFAR100(
                 root=root, train=train, download=True, transform=tfm,

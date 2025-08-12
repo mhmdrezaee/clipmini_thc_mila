@@ -49,6 +49,7 @@ def parse_args():
     p.add_argument("--warmup_steps", type=int, default=None)
     p.add_argument("--curriculum_epochs", type=int, default=None)
     p.add_argument("--use_augs", type=int, default=None)
+    p.add_argument("--aug_policy", type=str, default="light_basic")  # or "none"
 
     p.add_argument("--use_swap_margin", type=int, default=None)  # 1/0
     p.add_argument("--swap_margin", type=float, default=None)
