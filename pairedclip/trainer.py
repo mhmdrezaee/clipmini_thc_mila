@@ -6,6 +6,14 @@ from pairedclip.losses import combined_contrastive_loss
 from pairedclip.losses import contrastive_loss_with_logit_scale
 from pairedclip.data import PairedCIFAR100
 
+
+def half_mixup(imgs, idx_perm, lam: float):
+    # imgs: (B,3,32,64) → split along width and mix left-with-left, right-with-right
+    left, right = imgs[..., :32], imgs[..., 32:]
+    left_m  = lam * left  + (1.0 - lam) * left[idx_perm]
+    right_m = lam * right + (1.0 - lam) * right[idx_perm]
+    return torch.cat([left_m, right_m], dim=-1)
+
 def build_classnames(data_root: str):
     tmp = PairedCIFAR100(root=data_root, train=True, size=10, augment=False)
     return tmp.class_names
@@ -53,43 +61,80 @@ def train_one_epoch(img_enc, caption_bank_cpu, loader, device, optimizer, scaler
     running = 0.0
     optimizer.zero_grad(set_to_none=True)
 
+    import time
     t0 = time.time()
     for it, (imgs, cL, cR) in enumerate(loader, start=1):
         imgs = imgs.to(device, non_blocking=True)
 
-        # --- targets from caption bank (CPU → GPU) ---
-        idx_pos = (cL.cpu() * 100 + cR.cpu())
-        tz_pos  = caption_bank_cpu[idx_pos].to(device, non_blocking=True)          # (B,D)
+        # ---- Optional Half-Mixup (from a later epoch) ----
+        use_mix = bool(cfg.mixup) and (epoch >= int(cfg.mixup_start_epoch))
+        if use_mix:
+            B = imgs.size(0)
+            idx_perm = torch.randperm(B, device=device)
+            # draw a single lambda per batch (simple and effective)
+            lam = float(torch.distributions.Beta(cfg.mixup_alpha, cfg.mixup_alpha).sample())
+            imgs = half_mixup(imgs, idx_perm, lam)
 
-        tz_swp = None
-        if cfg.use_swap_margin:
-            idx_swp = (cR.cpu() * 100 + cL.cpu())
-            tz_swp  = caption_bank_cpu[idx_swp].to(device, non_blocking=True)      # (B,D)
+            # mix the text targets the same way
+            idx_a = (cL.cpu() * 100 + cR.cpu())                      # (B,)
+            idx_b = (cL[idx_perm.cpu()].cpu() * 100 + cR[idx_perm.cpu()].cpu())
+            tz_pos = lam * caption_bank_cpu[idx_a] + (1.0 - lam) * caption_bank_cpu[idx_b]
+            tz_pos = F.normalize(tz_pos, dim=-1).to(device, non_blocking=True)
 
-        tz_negs = None
-        if cfg.use_partial_softmax and cfg.partial_m > 0:
-            idx_negs = _sample_semi_hard_indices(cL.cpu(), cR.cpu(), M=cfg.partial_m)  # (B,M)
-            tz_negs  = caption_bank_cpu[idx_negs.reshape(-1)].to(device, non_blocking=True)
-            tz_negs  = tz_negs.view(len(cL), cfg.partial_m, -1)                     # (B,M,D)
+            # with mixup active, keep loss simple (no swap/partials this batch)
+            tz_swp = None
+            tz_negs = None
+        else:
+            # plain (non-mixed) targets from the caption bank
+            idx_pos = (cL.cpu() * 100 + cR.cpu())
+            tz_pos  = caption_bank_cpu[idx_pos].to(device, non_blocking=True)
 
-        # --- forward & loss ---
-        with torch.cuda.amp.autocast(enabled=cfg.amp):
-            iz = img_enc(imgs)  # (B,D) normalized by the model
+            tz_swp = None
+            if getattr(cfg, "use_swap_margin", False):
+                idx_swp = (cR.cpu() * 100 + cL.cpu())
+                tz_swp  = caption_bank_cpu[idx_swp].to(device, non_blocking=True)
+
+            tz_negs = None
+            if getattr(cfg, "use_partial_softmax", False) and getattr(cfg, "partial_m", 0) > 0:
+                M = int(cfg.partial_m)
+                # sample semi-hard negatives: (L, r') and (l', R)
+                B = cL.size(0)
+                mL = M // 2
+                mR = M - mL
+                r_rand = torch.randint(0, 100, (B, mR), dtype=torch.long)
+                maskR = (r_rand == cR.unsqueeze(1))
+                if maskR.any(): r_rand[maskR] = (r_rand[maskR] + 1) % 100
+                idx_sameL = (cL.unsqueeze(1) * 100 + r_rand)
+
+                l_rand = torch.randint(0, 100, (B, mL), dtype=torch.long)
+                maskL = (l_rand == cL.unsqueeze(1))
+                if maskL.any(): l_rand[maskL] = (l_rand[maskL] + 1) % 100
+                idx_sameR = (l_rand * 100 + cR.unsqueeze(1))
+
+                idx_negs = torch.cat([idx_sameL, idx_sameR], dim=1)  # (B,M)
+                tz_negs = caption_bank_cpu[idx_negs.reshape(-1)].to(device, non_blocking=True)
+                tz_negs = tz_negs.view(B, M, -1)                     # (B,M,D)
+
+        # ---- Forward + loss ----
+        from pairedclip.losses import combined_contrastive_loss
+        with torch.cuda.amp.autocast(enabled=cfg.amp and torch.cuda.is_available()):
+            iz = img_enc(imgs)  # (B,D), already normalized by the head
             loss = combined_contrastive_loss(
                 iz, tz_pos, logit_scale,
                 txt_swapped=tz_swp,
                 txt_negs=tz_negs,
-                label_smoothing_eps=cfg.label_smoothing_eps,
-                swap_margin=cfg.swap_margin, swap_weight=cfg.swap_weight,
-                partial_weight=cfg.partial_weight,
-                reg_logit_scale_tau=cfg.reg_logit_scale_tau,
-                reg_logit_scale_weight=cfg.reg_logit_scale_weight
+                label_smoothing_eps=getattr(cfg, "label_smoothing_eps", 0.0),
+                swap_margin=getattr(cfg, "swap_margin", 0.1),
+                swap_weight=getattr(cfg, "swap_weight", 0.5),
+                partial_weight=getattr(cfg, "partial_weight", 1.0),
+                reg_logit_scale_tau=getattr(cfg, "reg_logit_scale_tau", None),
+                reg_logit_scale_weight=getattr(cfg, "reg_logit_scale_weight", 0.0)
             )
 
-        # --- optim step with grad accumulation ---
+        # ---- Optim step with grad accumulation ----
         scaler.scale(loss / cfg.accum_steps).backward()
         if it % cfg.accum_steps == 0:
-            if cfg.amp:
+            if cfg.amp and torch.cuda.is_available():
                 scaler.unscale_(optimizer)
             torch.nn.utils.clip_grad_norm_(img_enc.parameters(), 1.0)
             scaler.step(optimizer); scaler.update()
@@ -98,7 +143,7 @@ def train_one_epoch(img_enc, caption_bank_cpu, loader, device, optimizer, scaler
 
         running += loss.item()
 
-        # heartbeat
+        # heartbeat (unchanged)
         if logger and (it % 100 == 0 or it == 1):
             ls_val = float(logit_scale.detach().exp().clamp(max=100))
             last_lr = sched.get_last_lr()[0]
@@ -115,6 +160,7 @@ def train_one_epoch(img_enc, caption_bank_cpu, loader, device, optimizer, scaler
     avg = running / len(loader)
     secs = time.time() - t0
     return avg, secs
+
 
 @torch.no_grad()
 def evaluate(img_enc, txt_enc, device, class_names, cfg):

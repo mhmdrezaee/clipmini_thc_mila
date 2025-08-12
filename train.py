@@ -37,7 +37,12 @@ def parse_args():
     p.add_argument("--vit_depth", type=int, default=None)
     p.add_argument("--vit_heads", type=int, default=None)
     p.add_argument("--vit_patch", type=int, default=None)
+
     # tricks
+    p.add_argument("--mixup", type=int, default=None)
+    p.add_argument("--mixup_alpha", type=float, default=None)
+    p.add_argument("--mixup_start_epoch", type=int, default=None)
+
     p.add_argument("--amp", action="store_true")
     p.add_argument("--accum_steps", type=int, default=None)
     p.add_argument("--min_lr", type=float, default=None)
