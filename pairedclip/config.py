@@ -4,6 +4,7 @@ from dataclasses import dataclass
 class TrainConfig:
     data_root: str = "./data"
     output_dir: str = "./output"
+    run_name: str = "Adding_logging"
     batch_size: int = 256
     epochs: int = 20
     lr: float = 5e-4
