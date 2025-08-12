@@ -13,12 +13,13 @@ def train_transform(augment: bool = True):
 
     # Light but effective for 32×32
     return transforms.Compose([
+        transforms.RandomCrop(32, padding=4, padding_mode="reflect"),
         transforms.RandomResizedCrop((32, 32), scale=(0.8, 1.0), ratio=(0.9, 1.1)),
         transforms.RandomHorizontalFlip(p=0.5),       # flips each image independently (OK)
         transforms.ColorJitter(0.2, 0.2, 0.2, 0.1),
         transforms.RandomGrayscale(p=0.1),
         # Optional extra punch (comment out if too slow/noisy):
-        # transforms.TrivialAugmentWide(),
+        transforms.TrivialAugmentWide(),
         transforms.ToTensor(),
         transforms.Normalize(MEAN, STD),
         transforms.RandomErasing(p=0.1, scale=(0.02, 0.2), value="random"),

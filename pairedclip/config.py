@@ -3,6 +3,7 @@ from dataclasses import dataclass
 @dataclass
 class TrainConfig:
     data_root: str = "./data"
+    output_dir: str = "./output"
     batch_size: int = 256
     epochs: int = 20
     lr: float = 5e-4
@@ -16,6 +17,9 @@ class TrainConfig:
     warmup_steps: int = 500  # linear warmup
     curriculum_epochs: int = 10  # early epochs: harder negatives (diff superclasses)
     use_augs: bool = True
+    mixup: int = 1
+    mixup_alpha: float = 0.4
+    mixup_start_epoch: int = 2
 
     # model
     emb_dim: int = 512  # CLIP ViT-B/32 text dim = 512
