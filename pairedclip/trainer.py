@@ -15,20 +15,38 @@ def half_mixup(imgs, idx_perm, lam: float):
     return torch.cat([left_m, right_m], dim=-1)
 
 def build_classnames(data_root: str):
-    tmp = PairedCIFAR100(root=data_root, train=True, size=10, augment=False)
+    # keep augment OFF for this tiny probe; policy doesn't matter here
+    tmp = PairedCIFAR100(root=data_root, train=True, size=10, augment=False, aug_policy="none")
     return tmp.class_names
 
+
 def build_loader(cfg, hard: bool):
-    ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000,
-                        different_superclass=hard, augment=bool(cfg.use_augs))
-    loader = DataLoader(ds, batch_size=cfg.batch_size, shuffle=True,
-                        num_workers=cfg.num_workers, pin_memory=True, drop_last=True)
+    ds = PairedCIFAR100(
+        root=cfg.data_root,
+        train=True,
+        size=20000,
+        different_superclass=hard,
+        augment=bool(cfg.use_augs),
+        aug_policy=getattr(cfg, "aug_policy", "light_basic"),  # <<< pass it
+    )
+    loader = DataLoader(
+        ds, batch_size=cfg.batch_size, shuffle=True,
+        num_workers=cfg.num_workers, pin_memory=True, drop_last=True
+    )
     return ds, loader
 
+
 def steps_per_epoch_estimate(cfg):
-    ds = PairedCIFAR100(root=cfg.data_root, train=True, size=20000,
-                        different_superclass=True, augment=bool(cfg.use_augs))
+    ds = PairedCIFAR100(
+        root=cfg.data_root,
+        train=True,
+        size=20000,
+        different_superclass=True,
+        augment=bool(cfg.use_augs),
+        aug_policy=getattr(cfg, "aug_policy", "light_basic"),  # <<< pass it
+    )
     return (len(ds) + cfg.batch_size - 1) // cfg.batch_size
+
 
 def _sample_semi_hard_indices(cL, cR, M=8):
     """

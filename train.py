@@ -110,7 +110,10 @@ def main():
     # ---- epochs
     for epoch in range(1, cfg.epochs + 1):
         hard = (epoch <= cfg.curriculum_epochs)
-        logger.info(f"Starting epoch {epoch} (different_superclass={hard}, augs={bool(cfg.use_augs)})")
+        logger.info(
+            f"Starting epoch {epoch} "
+            f"(different_superclass={hard}, augs={bool(cfg.use_augs)}, aug_policy={cfg.aug_policy})"
+        )
 
         ds, loader = build_loader(cfg, hard)
         avg_loss, secs = train_one_epoch(

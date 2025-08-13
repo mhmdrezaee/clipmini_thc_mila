@@ -90,11 +90,13 @@ class PairedCIFAR100(Dataset):
         self.size = size
         self.different_superclass = different_superclass
         self.has_coarse = False
+        self.aug_policy = aug_policy
+
         if train:
-            tfm = train_transform_by_policy(aug_policy if augment else "none")
+            tfm = train_transform_by_policy(self.aug_policy if augment else "none")
         else:
             tfm = eval_transform
-            # Try modern API with target_type; fall back gracefully
+
         try:
             self.base = datasets.CIFAR100(
                 root=root, train=train, download=True, transform=tfm,
