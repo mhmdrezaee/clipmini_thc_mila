@@ -18,6 +18,7 @@ class TrainConfig:
     warmup_steps: int = 500  # linear warmup
     curriculum_epochs: int = 10  # early epochs: harder negatives (diff superclasses)
     use_augs: bool = True
+    aug_policy: str = "none"
     mixup: int = 1
     mixup_alpha: float = 0.4
     mixup_start_epoch: int = 2
