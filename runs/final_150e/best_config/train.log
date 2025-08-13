@@ -1,0 +1,740 @@
+23:46:01 | INFO | Device: cuda
+23:46:01 | INFO | Config: {'data_root': './data', 'output_dir': './runs/final_150e', 'run_name': 'p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02', 'batch_size': 128, 'epochs': 150, 'lr': 0.0008, 'weight_decay': 0.05, 'temperature': 0.07, 'seed': 42, 'num_workers': 4, 'amp': True, 'accum_steps': 2, 'min_lr': 1e-06, 'warmup_steps': 700, 'curriculum_epochs': 3, 'use_augs': 1, 'aug_policy': 'none', 'mixup': 0, 'mixup_alpha': 0.4, 'mixup_start_epoch': 2, 'emb_dim': 512, 'vit_dim': 256, 'vit_depth': 6, 'vit_heads': 4, 'vit_patch': 4, 'eval_size': 2000, 'eval_batches': None, 'use_swap_margin': 1, 'swap_margin': 0.05, 'swap_weight': 0.2, 'use_partial_softmax': True, 'partial_m': 8, 'partial_weight': 1.0, 'label_smoothing_eps': 0.0, 'reg_logit_scale_weight': 0.0, 'reg_logit_scale_tau': 0.07}
+23:48:28 | INFO | Starting epoch 1 (different_superclass=True, augs=True, aug_policy=none)
+23:48:33 | INFO | ep 1 it 1/156 | loss 7.1531 | lr 1.143e-06 | logit_scale 14.29 | cuda_mem 60MB
+23:49:12 | INFO | ep 1 it 100/156 | loss 6.7637 | lr 5.829e-05 | logit_scale 14.30 | cuda_mem 78MB
+23:50:37 | INFO | Epoch 1 done in 64.0s | avg_loss=6.7596 | top1=0.0005 top10=0.0075 top100=0.0665 | lr=9.028571e-05 | logit_scale=14.34
+23:50:37 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_001.pt
+23:50:37 | INFO | New best (top-100=0.0665) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+23:50:37 | INFO | Starting epoch 2 (different_superclass=True, augs=True, aug_policy=none)
+23:50:42 | INFO | ep 2 it 1/156 | loss 6.3940 | lr 9.029e-05 | logit_scale 14.34 | cuda_mem 98MB
+23:51:21 | INFO | ep 2 it 100/156 | loss 6.2708 | lr 1.474e-04 | logit_scale 14.46 | cuda_mem 79MB
+23:52:51 | INFO | Epoch 2 done in 67.2s | avg_loss=6.2872 | top1=0.0015 top10=0.0130 top100=0.1090 | lr=1.794286e-04 | logit_scale=14.55
+23:52:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_002.pt
+23:52:52 | INFO | New best (top-100=0.1090) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+23:52:52 | INFO | Starting epoch 3 (different_superclass=True, augs=True, aug_policy=none)
+23:52:56 | INFO | ep 3 it 1/156 | loss 6.3324 | lr 1.794e-04 | logit_scale 14.55 | cuda_mem 98MB
+23:53:36 | INFO | ep 3 it 100/156 | loss 6.0250 | lr 2.366e-04 | logit_scale 14.76 | cuda_mem 79MB
+23:55:08 | INFO | Epoch 3 done in 69.3s | avg_loss=6.0428 | top1=0.0025 top10=0.0275 top100=0.1380 | lr=2.685714e-04 | logit_scale=14.90
+23:55:08 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_003.pt
+23:55:08 | INFO | New best (top-100=0.1380) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+23:55:08 | INFO | Starting epoch 4 (different_superclass=False, augs=True, aug_policy=none)
+23:55:12 | INFO | ep 4 it 1/156 | loss 5.9295 | lr 2.686e-04 | logit_scale 14.90 | cuda_mem 98MB
+23:55:52 | INFO | ep 4 it 100/156 | loss 5.7756 | lr 3.257e-04 | logit_scale 15.21 | cuda_mem 79MB
+23:57:24 | INFO | Epoch 4 done in 69.6s | avg_loss=5.8319 | top1=0.0050 top10=0.0280 top100=0.1690 | lr=3.577143e-04 | logit_scale=15.41
+23:57:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_004.pt
+23:57:24 | INFO | New best (top-100=0.1690) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+23:57:24 | INFO | Starting epoch 5 (different_superclass=False, augs=True, aug_policy=none)
+23:57:29 | INFO | ep 5 it 1/156 | loss 6.0258 | lr 3.577e-04 | logit_scale 15.41 | cuda_mem 98MB
+23:58:08 | INFO | ep 5 it 100/156 | loss 5.5965 | lr 4.149e-04 | logit_scale 15.82 | cuda_mem 79MB
+23:59:41 | INFO | Epoch 5 done in 70.1s | avg_loss=5.6587 | top1=0.0060 top10=0.0320 top100=0.1890 | lr=4.468571e-04 | logit_scale=16.07
+23:59:42 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_005.pt
+23:59:42 | INFO | New best (top-100=0.1890) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+23:59:42 | INFO | Starting epoch 6 (different_superclass=False, augs=True, aug_policy=none)
+23:59:46 | INFO | ep 6 it 1/156 | loss 5.5151 | lr 4.469e-04 | logit_scale 16.07 | cuda_mem 98MB
+00:00:26 | INFO | ep 6 it 100/156 | loss 5.4122 | lr 5.040e-04 | logit_scale 16.59 | cuda_mem 79MB
+00:01:55 | INFO | Epoch 6 done in 69.2s | avg_loss=5.4915 | top1=0.0040 top10=0.0380 top100=0.1965 | lr=5.360000e-04 | logit_scale=16.92
+00:01:55 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_006.pt
+00:01:55 | INFO | New best (top-100=0.1965) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:01:55 | INFO | Starting epoch 7 (different_superclass=False, augs=True, aug_policy=none)
+00:02:02 | INFO | ep 7 it 1/156 | loss 5.2752 | lr 5.360e-04 | logit_scale 16.92 | cuda_mem 98MB
+00:02:41 | INFO | ep 7 it 100/156 | loss 5.1238 | lr 5.931e-04 | logit_scale 17.59 | cuda_mem 79MB
+00:04:10 | INFO | Epoch 7 done in 69.1s | avg_loss=5.2971 | top1=0.0075 top10=0.0610 top100=0.2355 | lr=6.251429e-04 | logit_scale=17.99
+00:04:11 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_007.pt
+00:04:11 | INFO | New best (top-100=0.2355) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:04:11 | INFO | Starting epoch 8 (different_superclass=False, augs=True, aug_policy=none)
+00:04:15 | INFO | ep 8 it 1/156 | loss 5.1086 | lr 6.251e-04 | logit_scale 17.99 | cuda_mem 98MB
+00:04:57 | INFO | ep 8 it 100/156 | loss 5.0238 | lr 6.823e-04 | logit_scale 18.77 | cuda_mem 79MB
+00:06:28 | INFO | Epoch 8 done in 69.4s | avg_loss=5.1584 | top1=0.0085 top10=0.0585 top100=0.2655 | lr=7.142857e-04 | logit_scale=19.24
+00:06:28 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_008.pt
+00:06:28 | INFO | New best (top-100=0.2655) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:06:28 | INFO | Starting epoch 9 (different_superclass=False, augs=True, aug_policy=none)
+00:06:32 | INFO | ep 9 it 1/156 | loss 4.9475 | lr 7.143e-04 | logit_scale 19.24 | cuda_mem 98MB
+00:07:14 | INFO | ep 9 it 100/156 | loss 5.0134 | lr 7.714e-04 | logit_scale 20.14 | cuda_mem 79MB
+00:08:44 | INFO | Epoch 9 done in 69.4s | avg_loss=4.9947 | top1=0.0145 top10=0.0850 top100=0.3045 | lr=7.999999e-04 | logit_scale=20.69
+00:08:44 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_009.pt
+00:08:44 | INFO | New best (top-100=0.3045) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:08:44 | INFO | Starting epoch 10 (different_superclass=False, augs=True, aug_policy=none)
+00:08:48 | INFO | ep 10 it 1/156 | loss 5.1142 | lr 8.000e-04 | logit_scale 20.69 | cuda_mem 98MB
+00:09:28 | INFO | ep 10 it 100/156 | loss 4.9048 | lr 8.000e-04 | logit_scale 21.67 | cuda_mem 79MB
+00:10:59 | INFO | Epoch 10 done in 68.9s | avg_loss=4.8756 | top1=0.0145 top10=0.0805 top100=0.3110 | lr=7.998957e-04 | logit_scale=22.26
+00:10:59 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_010.pt
+00:11:00 | INFO | New best (top-100=0.3110) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:11:00 | INFO | Starting epoch 11 (different_superclass=False, augs=True, aug_policy=none)
+00:11:03 | INFO | ep 11 it 1/156 | loss 4.6166 | lr 7.999e-04 | logit_scale 22.26 | cuda_mem 98MB
+00:11:43 | INFO | ep 11 it 100/156 | loss 4.6557 | lr 7.997e-04 | logit_scale 23.35 | cuda_mem 79MB
+00:13:16 | INFO | Epoch 11 done in 70.3s | avg_loss=4.6457 | top1=0.0110 top10=0.0960 top100=0.3560 | lr=7.995933e-04 | logit_scale=23.95
+00:13:16 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_011.pt
+00:13:17 | INFO | New best (top-100=0.3560) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:13:17 | INFO | Starting epoch 12 (different_superclass=False, augs=True, aug_policy=none)
+00:13:20 | INFO | ep 12 it 1/156 | loss 4.6607 | lr 7.996e-04 | logit_scale 23.95 | cuda_mem 98MB
+00:14:01 | INFO | ep 12 it 100/156 | loss 4.1577 | lr 7.993e-04 | logit_scale 25.06 | cuda_mem 79MB
+00:15:32 | INFO | Epoch 12 done in 69.1s | avg_loss=4.4754 | top1=0.0175 top10=0.1155 top100=0.3975 | lr=7.990929e-04 | logit_scale=25.69
+00:15:32 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_012.pt
+00:15:33 | INFO | New best (top-100=0.3975) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:15:33 | INFO | Starting epoch 13 (different_superclass=False, augs=True, aug_policy=none)
+00:15:37 | INFO | ep 13 it 1/156 | loss 4.7108 | lr 7.991e-04 | logit_scale 25.69 | cuda_mem 98MB
+00:16:16 | INFO | ep 13 it 100/156 | loss 4.6665 | lr 7.987e-04 | logit_scale 26.82 | cuda_mem 79MB
+00:17:49 | INFO | Epoch 13 done in 70.0s | avg_loss=4.3077 | top1=0.0200 top10=0.1410 top100=0.4255 | lr=7.983947e-04 | logit_scale=27.47
+00:17:49 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_013.pt
+00:17:49 | INFO | New best (top-100=0.4255) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:17:49 | INFO | Starting epoch 14 (different_superclass=False, augs=True, aug_policy=none)
+00:17:53 | INFO | ep 14 it 1/156 | loss 4.1128 | lr 7.984e-04 | logit_scale 27.47 | cuda_mem 98MB
+00:18:34 | INFO | ep 14 it 100/156 | loss 3.8833 | lr 7.978e-04 | logit_scale 28.67 | cuda_mem 79MB
+00:20:05 | INFO | Epoch 14 done in 70.1s | avg_loss=4.1290 | top1=0.0185 top10=0.1200 top100=0.4065 | lr=7.974990e-04 | logit_scale=29.32
+00:20:06 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_014.pt
+00:20:06 | INFO | Starting epoch 15 (different_superclass=False, augs=True, aug_policy=none)
+00:20:10 | INFO | ep 15 it 1/156 | loss 3.9095 | lr 7.975e-04 | logit_scale 29.32 | cuda_mem 98MB
+00:20:50 | INFO | ep 15 it 100/156 | loss 4.0265 | lr 7.968e-04 | logit_scale 30.48 | cuda_mem 79MB
+00:22:20 | INFO | Epoch 15 done in 68.9s | avg_loss=3.9821 | top1=0.0225 top10=0.1445 top100=0.4270 | lr=7.964063e-04 | logit_scale=31.15
+00:22:20 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_015.pt
+00:22:20 | INFO | New best (top-100=0.4270) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:22:20 | INFO | Starting epoch 16 (different_superclass=False, augs=True, aug_policy=none)
+00:22:25 | INFO | ep 16 it 1/156 | loss 3.8872 | lr 7.964e-04 | logit_scale 31.15 | cuda_mem 98MB
+00:23:04 | INFO | ep 16 it 100/156 | loss 3.7547 | lr 7.956e-04 | logit_scale 32.29 | cuda_mem 79MB
+00:24:35 | INFO | Epoch 16 done in 69.5s | avg_loss=3.8710 | top1=0.0220 top10=0.1425 top100=0.4775 | lr=7.951171e-04 | logit_scale=32.94
+00:24:35 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_016.pt
+00:24:35 | INFO | New best (top-100=0.4775) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:24:35 | INFO | Starting epoch 17 (different_superclass=False, augs=True, aug_policy=none)
+00:24:40 | INFO | ep 17 it 1/156 | loss 3.9667 | lr 7.951e-04 | logit_scale 32.94 | cuda_mem 98MB
+00:25:19 | INFO | ep 17 it 100/156 | loss 3.7204 | lr 7.942e-04 | logit_scale 34.07 | cuda_mem 79MB
+00:26:50 | INFO | Epoch 17 done in 69.3s | avg_loss=3.7465 | top1=0.0295 top10=0.1720 top100=0.5005 | lr=7.936322e-04 | logit_scale=34.75
+00:26:50 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_017.pt
+00:26:50 | INFO | New best (top-100=0.5005) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:26:50 | INFO | Starting epoch 18 (different_superclass=False, augs=True, aug_policy=none)
+00:26:55 | INFO | ep 18 it 1/156 | loss 4.1126 | lr 7.936e-04 | logit_scale 34.75 | cuda_mem 98MB
+00:27:35 | INFO | ep 18 it 100/156 | loss 3.6805 | lr 7.926e-04 | logit_scale 35.86 | cuda_mem 79MB
+00:29:06 | INFO | Epoch 18 done in 69.0s | avg_loss=3.6478 | top1=0.0355 top10=0.1820 top100=0.5075 | lr=7.919521e-04 | logit_scale=36.52
+00:29:06 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_018.pt
+00:29:06 | INFO | New best (top-100=0.5075) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:29:06 | INFO | Starting epoch 19 (different_superclass=False, augs=True, aug_policy=none)
+00:29:10 | INFO | ep 19 it 1/156 | loss 3.5275 | lr 7.920e-04 | logit_scale 36.52 | cuda_mem 98MB
+00:29:51 | INFO | ep 19 it 100/156 | loss 3.2696 | lr 7.908e-04 | logit_scale 37.69 | cuda_mem 79MB
+00:31:22 | INFO | Epoch 19 done in 69.1s | avg_loss=3.4601 | top1=0.0370 top10=0.1885 top100=0.5275 | lr=7.900778e-04 | logit_scale=38.35
+00:31:22 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_019.pt
+00:31:23 | INFO | New best (top-100=0.5275) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:31:23 | INFO | Starting epoch 20 (different_superclass=False, augs=True, aug_policy=none)
+00:31:27 | INFO | ep 20 it 1/156 | loss 3.7206 | lr 7.901e-04 | logit_scale 38.35 | cuda_mem 98MB
+00:32:07 | INFO | ep 20 it 100/156 | loss 3.5659 | lr 7.888e-04 | logit_scale 39.44 | cuda_mem 79MB
+00:33:37 | INFO | Epoch 20 done in 69.5s | avg_loss=3.3928 | top1=0.0440 top10=0.2065 top100=0.5455 | lr=7.880102e-04 | logit_scale=40.06
+00:33:38 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_020.pt
+00:33:38 | INFO | New best (top-100=0.5455) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:33:38 | INFO | Starting epoch 21 (different_superclass=False, augs=True, aug_policy=none)
+00:33:42 | INFO | ep 21 it 1/156 | loss 3.2736 | lr 7.880e-04 | logit_scale 40.06 | cuda_mem 98MB
+00:34:22 | INFO | ep 21 it 100/156 | loss 3.2387 | lr 7.866e-04 | logit_scale 41.20 | cuda_mem 79MB
+00:35:53 | INFO | Epoch 21 done in 69.2s | avg_loss=3.2650 | top1=0.0450 top10=0.1965 top100=0.5495 | lr=7.857502e-04 | logit_scale=41.82
+00:35:53 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_021.pt
+00:35:53 | INFO | New best (top-100=0.5495) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:35:53 | INFO | Starting epoch 22 (different_superclass=False, augs=True, aug_policy=none)
+00:35:57 | INFO | ep 22 it 1/156 | loss 3.3764 | lr 7.858e-04 | logit_scale 41.82 | cuda_mem 98MB
+00:36:37 | INFO | ep 22 it 100/156 | loss 3.2487 | lr 7.842e-04 | logit_scale 42.90 | cuda_mem 79MB
+00:38:07 | INFO | Epoch 22 done in 68.4s | avg_loss=3.2030 | top1=0.0470 top10=0.2145 top100=0.5525 | lr=7.832991e-04 | logit_scale=43.48
+00:38:07 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_022.pt
+00:38:07 | INFO | New best (top-100=0.5525) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:38:07 | INFO | Starting epoch 23 (different_superclass=False, augs=True, aug_policy=none)
+00:38:12 | INFO | ep 23 it 1/156 | loss 3.0758 | lr 7.833e-04 | logit_scale 43.48 | cuda_mem 98MB
+00:38:51 | INFO | ep 23 it 100/156 | loss 3.3092 | lr 7.816e-04 | logit_scale 44.57 | cuda_mem 79MB
+00:40:23 | INFO | Epoch 23 done in 69.7s | avg_loss=3.0865 | top1=0.0395 top10=0.2290 top100=0.5830 | lr=7.806581e-04 | logit_scale=45.19
+00:40:23 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_023.pt
+00:40:23 | INFO | New best (top-100=0.5830) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:40:23 | INFO | Starting epoch 24 (different_superclass=False, augs=True, aug_policy=none)
+00:40:27 | INFO | ep 24 it 1/156 | loss 3.3363 | lr 7.807e-04 | logit_scale 45.19 | cuda_mem 98MB
+00:41:07 | INFO | ep 24 it 100/156 | loss 2.6062 | lr 7.789e-04 | logit_scale 46.22 | cuda_mem 79MB
+00:42:38 | INFO | Epoch 24 done in 69.2s | avg_loss=3.0117 | top1=0.0395 top10=0.2470 top100=0.6055 | lr=7.778284e-04 | logit_scale=46.79
+00:42:38 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_024.pt
+00:42:38 | INFO | New best (top-100=0.6055) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+00:42:38 | INFO | Starting epoch 25 (different_superclass=False, augs=True, aug_policy=none)
+00:42:43 | INFO | ep 25 it 1/156 | loss 3.2554 | lr 7.778e-04 | logit_scale 46.79 | cuda_mem 98MB
+00:43:23 | INFO | ep 25 it 100/156 | loss 2.6937 | lr 7.759e-04 | logit_scale 47.78 | cuda_mem 79MB
+04:41:44 | INFO | Device: cuda
+04:41:44 | INFO | Config: {'data_root': './data', 'output_dir': './runs/final_150e', 'run_name': 'p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02', 'batch_size': 128, 'epochs': 150, 'lr': 0.0008, 'weight_decay': 0.05, 'temperature': 0.07, 'seed': 42, 'num_workers': 4, 'amp': True, 'accum_steps': 2, 'min_lr': 1e-06, 'warmup_steps': 700, 'curriculum_epochs': 3, 'use_augs': 1, 'aug_policy': 'none', 'mixup': 0, 'mixup_alpha': 0.4, 'mixup_start_epoch': 2, 'emb_dim': 512, 'vit_dim': 256, 'vit_depth': 6, 'vit_heads': 4, 'vit_patch': 4, 'eval_size': 2000, 'eval_batches': None, 'use_swap_margin': 1, 'swap_margin': 0.05, 'swap_weight': 0.2, 'use_partial_softmax': True, 'partial_m': 8, 'partial_weight': 1.0, 'label_smoothing_eps': 0.0, 'reg_logit_scale_weight': 0.0, 'reg_logit_scale_tau': 0.07}
+04:44:48 | INFO | Starting epoch 1 (different_superclass=True, augs=True, aug_policy=none)
+04:44:53 | INFO | ep 1 it 1/156 | loss 7.1531 | lr 1.143e-06 | logit_scale 14.29 | cuda_mem 60MB
+04:45:31 | INFO | ep 1 it 100/156 | loss 6.7637 | lr 5.829e-05 | logit_scale 14.30 | cuda_mem 78MB
+04:46:55 | INFO | Epoch 1 done in 61.0s | avg_loss=6.7596 | top1=0.0005 top10=0.0075 top100=0.0665 | lr=9.028571e-05 | logit_scale=14.34
+04:46:55 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_001.pt
+04:46:55 | INFO | Starting epoch 2 (different_superclass=True, augs=True, aug_policy=none)
+04:46:59 | INFO | ep 2 it 1/156 | loss 6.3940 | lr 9.029e-05 | logit_scale 14.34 | cuda_mem 98MB
+04:47:38 | INFO | ep 2 it 100/156 | loss 6.2708 | lr 1.474e-04 | logit_scale 14.46 | cuda_mem 79MB
+04:49:02 | INFO | Epoch 2 done in 60.8s | avg_loss=6.2872 | top1=0.0015 top10=0.0130 top100=0.1090 | lr=1.794286e-04 | logit_scale=14.55
+04:49:02 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_002.pt
+04:49:02 | INFO | Starting epoch 3 (different_superclass=True, augs=True, aug_policy=none)
+04:49:06 | INFO | ep 3 it 1/156 | loss 6.3324 | lr 1.794e-04 | logit_scale 14.55 | cuda_mem 98MB
+04:49:45 | INFO | ep 3 it 100/156 | loss 6.0250 | lr 2.366e-04 | logit_scale 14.76 | cuda_mem 79MB
+04:51:12 | INFO | Epoch 3 done in 63.7s | avg_loss=6.0428 | top1=0.0025 top10=0.0275 top100=0.1380 | lr=2.685714e-04 | logit_scale=14.90
+04:51:13 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_003.pt
+04:51:13 | INFO | Starting epoch 4 (different_superclass=False, augs=True, aug_policy=none)
+04:51:16 | INFO | ep 4 it 1/156 | loss 5.9295 | lr 2.686e-04 | logit_scale 14.90 | cuda_mem 98MB
+04:51:55 | INFO | ep 4 it 100/156 | loss 5.7756 | lr 3.257e-04 | logit_scale 15.21 | cuda_mem 79MB
+04:53:19 | INFO | Epoch 4 done in 64.7s | avg_loss=5.8319 | top1=0.0050 top10=0.0280 top100=0.1690 | lr=3.577143e-04 | logit_scale=15.41
+04:53:19 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_004.pt
+04:53:19 | INFO | Starting epoch 5 (different_superclass=False, augs=True, aug_policy=none)
+04:53:23 | INFO | ep 5 it 1/156 | loss 6.0258 | lr 3.577e-04 | logit_scale 15.41 | cuda_mem 98MB
+04:54:01 | INFO | ep 5 it 100/156 | loss 5.5965 | lr 4.149e-04 | logit_scale 15.82 | cuda_mem 79MB
+04:55:27 | INFO | Epoch 5 done in 65.6s | avg_loss=5.6587 | top1=0.0060 top10=0.0320 top100=0.1890 | lr=4.468571e-04 | logit_scale=16.07
+04:55:27 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_005.pt
+04:55:27 | INFO | Starting epoch 6 (different_superclass=False, augs=True, aug_policy=none)
+04:55:31 | INFO | ep 6 it 1/156 | loss 5.5151 | lr 4.469e-04 | logit_scale 16.07 | cuda_mem 98MB
+04:56:09 | INFO | ep 6 it 100/156 | loss 5.4122 | lr 5.040e-04 | logit_scale 16.59 | cuda_mem 79MB
+04:57:35 | INFO | Epoch 6 done in 66.4s | avg_loss=5.4915 | top1=0.0040 top10=0.0380 top100=0.1965 | lr=5.360000e-04 | logit_scale=16.92
+04:57:35 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_006.pt
+04:57:35 | INFO | Starting epoch 7 (different_superclass=False, augs=True, aug_policy=none)
+04:57:39 | INFO | ep 7 it 1/156 | loss 5.2752 | lr 5.360e-04 | logit_scale 16.92 | cuda_mem 98MB
+04:58:17 | INFO | ep 7 it 100/156 | loss 5.1238 | lr 5.931e-04 | logit_scale 17.59 | cuda_mem 79MB
+04:59:42 | INFO | Epoch 7 done in 65.7s | avg_loss=5.2971 | top1=0.0075 top10=0.0610 top100=0.2355 | lr=6.251429e-04 | logit_scale=17.99
+04:59:42 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_007.pt
+04:59:42 | INFO | Starting epoch 8 (different_superclass=False, augs=True, aug_policy=none)
+04:59:46 | INFO | ep 8 it 1/156 | loss 5.1086 | lr 6.251e-04 | logit_scale 17.99 | cuda_mem 98MB
+05:00:25 | INFO | ep 8 it 100/156 | loss 5.0238 | lr 6.823e-04 | logit_scale 18.77 | cuda_mem 79MB
+05:01:50 | INFO | Epoch 8 done in 66.8s | avg_loss=5.1584 | top1=0.0085 top10=0.0585 top100=0.2655 | lr=7.142857e-04 | logit_scale=19.24
+05:01:50 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_008.pt
+05:01:50 | INFO | Starting epoch 9 (different_superclass=False, augs=True, aug_policy=none)
+05:01:54 | INFO | ep 9 it 1/156 | loss 4.9475 | lr 7.143e-04 | logit_scale 19.24 | cuda_mem 98MB
+05:02:33 | INFO | ep 9 it 100/156 | loss 5.0134 | lr 7.714e-04 | logit_scale 20.14 | cuda_mem 79MB
+05:03:57 | INFO | Epoch 9 done in 66.1s | avg_loss=4.9947 | top1=0.0145 top10=0.0850 top100=0.3045 | lr=7.999999e-04 | logit_scale=20.69
+05:03:57 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_009.pt
+05:03:57 | INFO | Starting epoch 10 (different_superclass=False, augs=True, aug_policy=none)
+05:04:01 | INFO | ep 10 it 1/156 | loss 5.1142 | lr 8.000e-04 | logit_scale 20.69 | cuda_mem 98MB
+05:04:40 | INFO | ep 10 it 100/156 | loss 4.9048 | lr 8.000e-04 | logit_scale 21.67 | cuda_mem 79MB
+05:06:05 | INFO | Epoch 10 done in 66.0s | avg_loss=4.8756 | top1=0.0145 top10=0.0805 top100=0.3110 | lr=7.998957e-04 | logit_scale=22.26
+05:06:05 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_010.pt
+05:06:05 | INFO | Starting epoch 11 (different_superclass=False, augs=True, aug_policy=none)
+05:06:09 | INFO | ep 11 it 1/156 | loss 4.6166 | lr 7.999e-04 | logit_scale 22.26 | cuda_mem 98MB
+05:06:48 | INFO | ep 11 it 100/156 | loss 4.6557 | lr 7.997e-04 | logit_scale 23.35 | cuda_mem 79MB
+05:08:15 | INFO | Epoch 11 done in 67.2s | avg_loss=4.6457 | top1=0.0110 top10=0.0960 top100=0.3560 | lr=7.995933e-04 | logit_scale=23.95
+05:08:15 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_011.pt
+05:08:15 | INFO | Starting epoch 12 (different_superclass=False, augs=True, aug_policy=none)
+05:08:19 | INFO | ep 12 it 1/156 | loss 4.6607 | lr 7.996e-04 | logit_scale 23.95 | cuda_mem 98MB
+05:08:57 | INFO | ep 12 it 100/156 | loss 4.1577 | lr 7.993e-04 | logit_scale 25.06 | cuda_mem 79MB
+05:10:23 | INFO | Epoch 12 done in 67.1s | avg_loss=4.4754 | top1=0.0175 top10=0.1155 top100=0.3975 | lr=7.990929e-04 | logit_scale=25.69
+05:10:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_012.pt
+05:10:24 | INFO | Starting epoch 13 (different_superclass=False, augs=True, aug_policy=none)
+05:10:27 | INFO | ep 13 it 1/156 | loss 4.7108 | lr 7.991e-04 | logit_scale 25.69 | cuda_mem 98MB
+05:11:06 | INFO | ep 13 it 100/156 | loss 4.6665 | lr 7.987e-04 | logit_scale 26.82 | cuda_mem 79MB
+05:12:31 | INFO | Epoch 13 done in 66.0s | avg_loss=4.3077 | top1=0.0200 top10=0.1410 top100=0.4255 | lr=7.983947e-04 | logit_scale=27.47
+05:12:32 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_013.pt
+05:12:32 | INFO | Starting epoch 14 (different_superclass=False, augs=True, aug_policy=none)
+05:12:35 | INFO | ep 14 it 1/156 | loss 4.1128 | lr 7.984e-04 | logit_scale 27.47 | cuda_mem 98MB
+05:13:14 | INFO | ep 14 it 100/156 | loss 3.8833 | lr 7.978e-04 | logit_scale 28.67 | cuda_mem 79MB
+05:14:43 | INFO | Epoch 14 done in 66.8s | avg_loss=4.1290 | top1=0.0185 top10=0.1200 top100=0.4065 | lr=7.974990e-04 | logit_scale=29.32
+05:14:43 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_014.pt
+05:14:43 | INFO | Starting epoch 15 (different_superclass=False, augs=True, aug_policy=none)
+05:14:46 | INFO | ep 15 it 1/156 | loss 3.9095 | lr 7.975e-04 | logit_scale 29.32 | cuda_mem 98MB
+05:15:25 | INFO | ep 15 it 100/156 | loss 4.0265 | lr 7.968e-04 | logit_scale 30.48 | cuda_mem 79MB
+05:16:52 | INFO | Epoch 15 done in 67.5s | avg_loss=3.9821 | top1=0.0225 top10=0.1445 top100=0.4270 | lr=7.964063e-04 | logit_scale=31.15
+05:16:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_015.pt
+05:16:52 | INFO | Starting epoch 16 (different_superclass=False, augs=True, aug_policy=none)
+05:16:56 | INFO | ep 16 it 1/156 | loss 3.8872 | lr 7.964e-04 | logit_scale 31.15 | cuda_mem 98MB
+05:17:34 | INFO | ep 16 it 100/156 | loss 3.7547 | lr 7.956e-04 | logit_scale 32.29 | cuda_mem 79MB
+05:19:00 | INFO | Epoch 16 done in 66.8s | avg_loss=3.8710 | top1=0.0220 top10=0.1425 top100=0.4775 | lr=7.951171e-04 | logit_scale=32.94
+05:19:01 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_016.pt
+05:19:01 | INFO | Starting epoch 17 (different_superclass=False, augs=True, aug_policy=none)
+05:19:04 | INFO | ep 17 it 1/156 | loss 3.9667 | lr 7.951e-04 | logit_scale 32.94 | cuda_mem 98MB
+05:19:42 | INFO | ep 17 it 100/156 | loss 3.7204 | lr 7.942e-04 | logit_scale 34.07 | cuda_mem 79MB
+05:21:08 | INFO | Epoch 17 done in 66.7s | avg_loss=3.7465 | top1=0.0295 top10=0.1720 top100=0.5005 | lr=7.936322e-04 | logit_scale=34.75
+05:21:08 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_017.pt
+05:21:08 | INFO | Starting epoch 18 (different_superclass=False, augs=True, aug_policy=none)
+05:21:13 | INFO | ep 18 it 1/156 | loss 4.1126 | lr 7.936e-04 | logit_scale 34.75 | cuda_mem 98MB
+05:21:52 | INFO | ep 18 it 100/156 | loss 3.6805 | lr 7.926e-04 | logit_scale 35.86 | cuda_mem 79MB
+05:23:17 | INFO | Epoch 18 done in 66.8s | avg_loss=3.6478 | top1=0.0355 top10=0.1820 top100=0.5075 | lr=7.919521e-04 | logit_scale=36.52
+05:23:17 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_018.pt
+05:23:17 | INFO | Starting epoch 19 (different_superclass=False, augs=True, aug_policy=none)
+05:23:21 | INFO | ep 19 it 1/156 | loss 3.5275 | lr 7.920e-04 | logit_scale 36.52 | cuda_mem 98MB
+05:24:00 | INFO | ep 19 it 100/156 | loss 3.2696 | lr 7.908e-04 | logit_scale 37.69 | cuda_mem 79MB
+05:25:25 | INFO | Epoch 19 done in 66.6s | avg_loss=3.4601 | top1=0.0370 top10=0.1885 top100=0.5275 | lr=7.900778e-04 | logit_scale=38.35
+05:25:25 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_019.pt
+05:25:25 | INFO | Starting epoch 20 (different_superclass=False, augs=True, aug_policy=none)
+05:25:29 | INFO | ep 20 it 1/156 | loss 3.7206 | lr 7.901e-04 | logit_scale 38.35 | cuda_mem 98MB
+05:26:07 | INFO | ep 20 it 100/156 | loss 3.5659 | lr 7.888e-04 | logit_scale 39.44 | cuda_mem 79MB
+05:27:32 | INFO | Epoch 20 done in 65.7s | avg_loss=3.3928 | top1=0.0440 top10=0.2065 top100=0.5455 | lr=7.880102e-04 | logit_scale=40.06
+05:27:32 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_020.pt
+05:27:32 | INFO | Starting epoch 21 (different_superclass=False, augs=True, aug_policy=none)
+05:27:36 | INFO | ep 21 it 1/156 | loss 3.2736 | lr 7.880e-04 | logit_scale 40.06 | cuda_mem 98MB
+05:28:14 | INFO | ep 21 it 100/156 | loss 3.2387 | lr 7.866e-04 | logit_scale 41.20 | cuda_mem 79MB
+05:29:40 | INFO | Epoch 21 done in 66.5s | avg_loss=3.2650 | top1=0.0450 top10=0.1965 top100=0.5495 | lr=7.857502e-04 | logit_scale=41.82
+05:29:40 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_021.pt
+05:29:40 | INFO | Starting epoch 22 (different_superclass=False, augs=True, aug_policy=none)
+05:29:44 | INFO | ep 22 it 1/156 | loss 3.3764 | lr 7.858e-04 | logit_scale 41.82 | cuda_mem 98MB
+05:30:22 | INFO | ep 22 it 100/156 | loss 3.2487 | lr 7.842e-04 | logit_scale 42.90 | cuda_mem 79MB
+05:31:48 | INFO | Epoch 22 done in 66.1s | avg_loss=3.2030 | top1=0.0470 top10=0.2145 top100=0.5525 | lr=7.832991e-04 | logit_scale=43.48
+05:31:48 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_022.pt
+05:31:48 | INFO | Starting epoch 23 (different_superclass=False, augs=True, aug_policy=none)
+05:31:51 | INFO | ep 23 it 1/156 | loss 3.0758 | lr 7.833e-04 | logit_scale 43.48 | cuda_mem 98MB
+05:32:30 | INFO | ep 23 it 100/156 | loss 3.3092 | lr 7.816e-04 | logit_scale 44.57 | cuda_mem 79MB
+05:33:56 | INFO | Epoch 23 done in 66.6s | avg_loss=3.0865 | top1=0.0395 top10=0.2290 top100=0.5830 | lr=7.806581e-04 | logit_scale=45.19
+05:33:56 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_023.pt
+05:33:56 | INFO | Starting epoch 24 (different_superclass=False, augs=True, aug_policy=none)
+05:34:00 | INFO | ep 24 it 1/156 | loss 3.3363 | lr 7.807e-04 | logit_scale 45.19 | cuda_mem 98MB
+05:34:38 | INFO | ep 24 it 100/156 | loss 2.6062 | lr 7.789e-04 | logit_scale 46.22 | cuda_mem 79MB
+05:36:04 | INFO | Epoch 24 done in 67.0s | avg_loss=3.0117 | top1=0.0395 top10=0.2470 top100=0.6055 | lr=7.778284e-04 | logit_scale=46.79
+05:36:04 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_024.pt
+05:36:04 | INFO | Starting epoch 25 (different_superclass=False, augs=True, aug_policy=none)
+05:36:09 | INFO | ep 25 it 1/156 | loss 3.2554 | lr 7.778e-04 | logit_scale 46.79 | cuda_mem 98MB
+05:36:47 | INFO | ep 25 it 100/156 | loss 2.6937 | lr 7.759e-04 | logit_scale 47.78 | cuda_mem 79MB
+05:38:11 | INFO | Epoch 25 done in 65.1s | avg_loss=2.9387 | top1=0.0550 top10=0.2610 top100=0.6195 | lr=7.748114e-04 | logit_scale=48.35
+05:38:11 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_025.pt
+05:38:12 | INFO | New best (top-100=0.6195) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:38:12 | INFO | Starting epoch 26 (different_superclass=False, augs=True, aug_policy=none)
+05:38:15 | INFO | ep 26 it 1/156 | loss 2.9676 | lr 7.748e-04 | logit_scale 48.35 | cuda_mem 98MB
+05:38:55 | INFO | ep 26 it 100/156 | loss 2.9417 | lr 7.728e-04 | logit_scale 49.37 | cuda_mem 79MB
+05:40:19 | INFO | Epoch 26 done in 66.1s | avg_loss=2.8313 | top1=0.0460 top10=0.2650 top100=0.6345 | lr=7.716087e-04 | logit_scale=49.98
+05:40:19 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_026.pt
+05:40:20 | INFO | New best (top-100=0.6345) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:40:20 | INFO | Starting epoch 27 (different_superclass=False, augs=True, aug_policy=none)
+05:40:23 | INFO | ep 27 it 1/156 | loss 2.6698 | lr 7.716e-04 | logit_scale 49.98 | cuda_mem 98MB
+05:41:02 | INFO | ep 27 it 100/156 | loss 2.4774 | lr 7.695e-04 | logit_scale 51.03 | cuda_mem 79MB
+05:42:27 | INFO | Epoch 27 done in 65.5s | avg_loss=2.7601 | top1=0.0445 top10=0.2545 top100=0.6475 | lr=7.682219e-04 | logit_scale=51.62
+05:42:27 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_027.pt
+05:42:27 | INFO | New best (top-100=0.6475) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:42:27 | INFO | Starting epoch 28 (different_superclass=False, augs=True, aug_policy=none)
+05:42:30 | INFO | ep 28 it 1/156 | loss 2.8319 | lr 7.682e-04 | logit_scale 51.62 | cuda_mem 98MB
+05:43:09 | INFO | ep 28 it 100/156 | loss 2.4730 | lr 7.660e-04 | logit_scale 52.51 | cuda_mem 79MB
+05:44:36 | INFO | Epoch 28 done in 67.7s | avg_loss=2.7277 | top1=0.0445 top10=0.2645 top100=0.6225 | lr=7.646525e-04 | logit_scale=53.06
+05:44:36 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_028.pt
+05:44:36 | INFO | Starting epoch 29 (different_superclass=False, augs=True, aug_policy=none)
+05:44:40 | INFO | ep 29 it 1/156 | loss 2.8223 | lr 7.647e-04 | logit_scale 53.06 | cuda_mem 98MB
+05:45:18 | INFO | ep 29 it 100/156 | loss 2.6532 | lr 7.623e-04 | logit_scale 54.03 | cuda_mem 79MB
+05:46:45 | INFO | Epoch 29 done in 66.7s | avg_loss=2.6308 | top1=0.0535 top10=0.2840 top100=0.6540 | lr=7.609025e-04 | logit_scale=54.57
+05:46:45 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_029.pt
+05:46:45 | INFO | New best (top-100=0.6540) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:46:45 | INFO | Starting epoch 30 (different_superclass=False, augs=True, aug_policy=none)
+05:46:49 | INFO | ep 30 it 1/156 | loss 2.7385 | lr 7.609e-04 | logit_scale 54.57 | cuda_mem 98MB
+05:47:27 | INFO | ep 30 it 100/156 | loss 2.6563 | lr 7.584e-04 | logit_scale 55.50 | cuda_mem 79MB
+05:48:53 | INFO | Epoch 30 done in 66.3s | avg_loss=2.5589 | top1=0.0645 top10=0.3065 top100=0.6575 | lr=7.569736e-04 | logit_scale=56.04
+05:48:53 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_030.pt
+05:48:53 | INFO | New best (top-100=0.6575) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:48:53 | INFO | Starting epoch 31 (different_superclass=False, augs=True, aug_policy=none)
+05:48:57 | INFO | ep 31 it 1/156 | loss 2.7545 | lr 7.570e-04 | logit_scale 56.04 | cuda_mem 98MB
+05:49:35 | INFO | ep 31 it 100/156 | loss 2.5560 | lr 7.544e-04 | logit_scale 56.99 | cuda_mem 79MB
+05:51:00 | INFO | Epoch 31 done in 66.2s | avg_loss=2.4940 | top1=0.0680 top10=0.3090 top100=0.6980 | lr=7.528679e-04 | logit_scale=57.57
+05:51:01 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_031.pt
+05:51:01 | INFO | New best (top-100=0.6980) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:51:01 | INFO | Starting epoch 32 (different_superclass=False, augs=True, aug_policy=none)
+05:51:06 | INFO | ep 32 it 1/156 | loss 2.1504 | lr 7.529e-04 | logit_scale 57.57 | cuda_mem 98MB
+05:51:44 | INFO | ep 32 it 100/156 | loss 2.4756 | lr 7.501e-04 | logit_scale 58.47 | cuda_mem 79MB
+05:53:10 | INFO | Epoch 32 done in 65.6s | avg_loss=2.4324 | top1=0.0565 top10=0.3095 top100=0.6910 | lr=7.485873e-04 | logit_scale=59.01
+05:53:11 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_032.pt
+05:53:11 | INFO | Starting epoch 33 (different_superclass=False, augs=True, aug_policy=none)
+05:53:14 | INFO | ep 33 it 1/156 | loss 2.3504 | lr 7.486e-04 | logit_scale 59.01 | cuda_mem 98MB
+05:53:53 | INFO | ep 33 it 100/156 | loss 2.2833 | lr 7.458e-04 | logit_scale 59.94 | cuda_mem 79MB
+05:55:18 | INFO | Epoch 33 done in 65.4s | avg_loss=2.3843 | top1=0.0675 top10=0.3265 top100=0.6805 | lr=7.441339e-04 | logit_scale=60.39
+05:55:18 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_033.pt
+05:55:18 | INFO | Starting epoch 34 (different_superclass=False, augs=True, aug_policy=none)
+05:55:22 | INFO | ep 34 it 1/156 | loss 2.3224 | lr 7.441e-04 | logit_scale 60.39 | cuda_mem 98MB
+05:56:00 | INFO | ep 34 it 100/156 | loss 2.2060 | lr 7.412e-04 | logit_scale 61.31 | cuda_mem 79MB
+05:57:26 | INFO | Epoch 34 done in 66.6s | avg_loss=2.3227 | top1=0.0680 top10=0.3335 top100=0.7055 | lr=7.395100e-04 | logit_scale=61.83
+05:57:26 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_034.pt
+05:57:26 | INFO | New best (top-100=0.7055) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:57:26 | INFO | Starting epoch 35 (different_superclass=False, augs=True, aug_policy=none)
+05:57:30 | INFO | ep 35 it 1/156 | loss 2.0241 | lr 7.395e-04 | logit_scale 61.83 | cuda_mem 98MB
+05:58:08 | INFO | ep 35 it 100/156 | loss 2.4430 | lr 7.365e-04 | logit_scale 62.64 | cuda_mem 79MB
+05:59:35 | INFO | Epoch 35 done in 66.6s | avg_loss=2.2740 | top1=0.0665 top10=0.3335 top100=0.7085 | lr=7.347179e-04 | logit_scale=63.10
+05:59:35 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_035.pt
+05:59:35 | INFO | New best (top-100=0.7085) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+05:59:35 | INFO | Starting epoch 36 (different_superclass=False, augs=True, aug_policy=none)
+05:59:38 | INFO | ep 36 it 1/156 | loss 2.1156 | lr 7.347e-04 | logit_scale 63.10 | cuda_mem 98MB
+06:00:17 | INFO | ep 36 it 100/156 | loss 2.4710 | lr 7.316e-04 | logit_scale 63.97 | cuda_mem 79MB
+06:01:43 | INFO | Epoch 36 done in 66.3s | avg_loss=2.1837 | top1=0.0710 top10=0.3355 top100=0.7285 | lr=7.297600e-04 | logit_scale=64.50
+06:01:43 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_036.pt
+06:01:43 | INFO | New best (top-100=0.7285) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:01:43 | INFO | Starting epoch 37 (different_superclass=False, augs=True, aug_policy=none)
+06:01:47 | INFO | ep 37 it 1/156 | loss 2.3069 | lr 7.298e-04 | logit_scale 64.50 | cuda_mem 98MB
+06:02:25 | INFO | ep 37 it 100/156 | loss 1.9443 | lr 7.265e-04 | logit_scale 65.33 | cuda_mem 79MB
+06:03:52 | INFO | Epoch 37 done in 66.8s | avg_loss=2.1473 | top1=0.0785 top10=0.3565 top100=0.7280 | lr=7.246386e-04 | logit_scale=65.74
+06:03:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_037.pt
+06:03:52 | INFO | Starting epoch 38 (different_superclass=False, augs=True, aug_policy=none)
+06:03:56 | INFO | ep 38 it 1/156 | loss 2.0250 | lr 7.246e-04 | logit_scale 65.74 | cuda_mem 98MB
+06:04:34 | INFO | ep 38 it 100/156 | loss 2.0839 | lr 7.213e-04 | logit_scale 66.61 | cuda_mem 79MB
+06:06:00 | INFO | Epoch 38 done in 66.7s | avg_loss=2.0572 | top1=0.0605 top10=0.3715 top100=0.7340 | lr=7.193564e-04 | logit_scale=67.25
+06:06:00 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_038.pt
+06:06:00 | INFO | New best (top-100=0.7340) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:06:00 | INFO | Starting epoch 39 (different_superclass=False, augs=True, aug_policy=none)
+06:06:05 | INFO | ep 39 it 1/156 | loss 1.9810 | lr 7.194e-04 | logit_scale 67.25 | cuda_mem 98MB
+06:06:43 | INFO | ep 39 it 100/156 | loss 1.7042 | lr 7.159e-04 | logit_scale 68.02 | cuda_mem 79MB
+06:08:07 | INFO | Epoch 39 done in 65.9s | avg_loss=2.0270 | top1=0.0765 top10=0.3575 top100=0.7360 | lr=7.139160e-04 | logit_scale=68.54
+06:08:07 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_039.pt
+06:08:07 | INFO | New best (top-100=0.7360) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:08:07 | INFO | Starting epoch 40 (different_superclass=False, augs=True, aug_policy=none)
+06:08:11 | INFO | ep 40 it 1/156 | loss 2.0901 | lr 7.139e-04 | logit_scale 68.54 | cuda_mem 98MB
+06:08:51 | INFO | ep 40 it 100/156 | loss 1.8812 | lr 7.103e-04 | logit_scale 69.38 | cuda_mem 79MB
+06:10:14 | INFO | Epoch 40 done in 65.7s | avg_loss=1.9766 | top1=0.0785 top10=0.3790 top100=0.7625 | lr=7.083200e-04 | logit_scale=69.87
+06:10:14 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_040.pt
+06:10:15 | INFO | New best (top-100=0.7625) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:10:15 | INFO | Starting epoch 41 (different_superclass=False, augs=True, aug_policy=none)
+06:10:18 | INFO | ep 41 it 1/156 | loss 2.1292 | lr 7.083e-04 | logit_scale 69.87 | cuda_mem 98MB
+06:10:57 | INFO | ep 41 it 100/156 | loss 1.7630 | lr 7.047e-04 | logit_scale 70.73 | cuda_mem 79MB
+06:12:26 | INFO | Epoch 41 done in 68.0s | avg_loss=1.9128 | top1=0.0890 top10=0.4100 top100=0.7870 | lr=7.025713e-04 | logit_scale=71.29
+06:12:27 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_041.pt
+06:12:27 | INFO | New best (top-100=0.7870) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:12:27 | INFO | Starting epoch 42 (different_superclass=False, augs=True, aug_policy=none)
+06:12:30 | INFO | ep 42 it 1/156 | loss 2.1407 | lr 7.026e-04 | logit_scale 71.29 | cuda_mem 98MB
+06:13:09 | INFO | ep 42 it 100/156 | loss 1.8896 | lr 6.988e-04 | logit_scale 71.98 | cuda_mem 79MB
+06:14:37 | INFO | Epoch 42 done in 66.6s | avg_loss=1.8734 | top1=0.0865 top10=0.4015 top100=0.7805 | lr=6.966727e-04 | logit_scale=72.46
+06:14:38 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_042.pt
+06:14:38 | INFO | Starting epoch 43 (different_superclass=False, augs=True, aug_policy=none)
+06:14:41 | INFO | ep 43 it 1/156 | loss 2.0543 | lr 6.967e-04 | logit_scale 72.46 | cuda_mem 98MB
+06:15:20 | INFO | ep 43 it 100/156 | loss 1.9762 | lr 6.928e-04 | logit_scale 73.24 | cuda_mem 79MB
+06:16:51 | INFO | Epoch 43 done in 65.8s | avg_loss=1.8200 | top1=0.0870 top10=0.4130 top100=0.7965 | lr=6.906272e-04 | logit_scale=73.68
+06:16:51 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_043.pt
+06:16:51 | INFO | New best (top-100=0.7965) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:16:51 | INFO | Starting epoch 44 (different_superclass=False, augs=True, aug_policy=none)
+06:16:55 | INFO | ep 44 it 1/156 | loss 1.5030 | lr 6.906e-04 | logit_scale 73.68 | cuda_mem 98MB
+06:17:33 | INFO | ep 44 it 100/156 | loss 2.1897 | lr 6.867e-04 | logit_scale 74.57 | cuda_mem 79MB
+06:19:01 | INFO | Epoch 44 done in 64.9s | avg_loss=1.7671 | top1=0.0945 top10=0.4340 top100=0.7920 | lr=6.844376e-04 | logit_scale=75.08
+06:19:01 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_044.pt
+06:19:01 | INFO | Starting epoch 45 (different_superclass=False, augs=True, aug_policy=none)
+06:19:06 | INFO | ep 45 it 1/156 | loss 1.8354 | lr 6.844e-04 | logit_scale 75.08 | cuda_mem 98MB
+06:19:44 | INFO | ep 45 it 100/156 | loss 1.4479 | lr 6.804e-04 | logit_scale 76.02 | cuda_mem 79MB
+06:21:10 | INFO | Epoch 45 done in 65.6s | avg_loss=1.6891 | top1=0.0855 top10=0.4255 top100=0.7945 | lr=6.781072e-04 | logit_scale=76.53
+06:21:10 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_045.pt
+06:21:10 | INFO | Starting epoch 46 (different_superclass=False, augs=True, aug_policy=none)
+06:21:14 | INFO | ep 46 it 1/156 | loss 1.6686 | lr 6.781e-04 | logit_scale 76.53 | cuda_mem 98MB
+06:21:52 | INFO | ep 46 it 100/156 | loss 1.4293 | lr 6.740e-04 | logit_scale 77.21 | cuda_mem 79MB
+06:23:19 | INFO | Epoch 46 done in 65.6s | avg_loss=1.6766 | top1=0.0970 top10=0.4315 top100=0.8095 | lr=6.716390e-04 | logit_scale=77.58
+06:23:19 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_046.pt
+06:23:20 | INFO | New best (top-100=0.8095) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:23:20 | INFO | Starting epoch 47 (different_superclass=False, augs=True, aug_policy=none)
+06:23:24 | INFO | ep 47 it 1/156 | loss 1.8690 | lr 6.716e-04 | logit_scale 77.58 | cuda_mem 98MB
+06:24:02 | INFO | ep 47 it 100/156 | loss 1.9197 | lr 6.674e-04 | logit_scale 78.29 | cuda_mem 79MB
+06:25:34 | INFO | Epoch 47 done in 66.8s | avg_loss=1.6574 | top1=0.0960 top10=0.4395 top100=0.8130 | lr=6.650363e-04 | logit_scale=78.67
+06:25:34 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_047.pt
+06:25:34 | INFO | New best (top-100=0.8130) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:25:34 | INFO | Starting epoch 48 (different_superclass=False, augs=True, aug_policy=none)
+06:25:38 | INFO | ep 48 it 1/156 | loss 1.8843 | lr 6.650e-04 | logit_scale 78.67 | cuda_mem 98MB
+06:26:16 | INFO | ep 48 it 100/156 | loss 1.1804 | lr 6.607e-04 | logit_scale 79.46 | cuda_mem 79MB
+06:27:43 | INFO | Epoch 48 done in 67.0s | avg_loss=1.5717 | top1=0.1050 top10=0.4490 top100=0.8115 | lr=6.583022e-04 | logit_scale=80.00
+06:27:43 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_048.pt
+06:27:43 | INFO | Starting epoch 49 (different_superclass=False, augs=True, aug_policy=none)
+06:27:47 | INFO | ep 49 it 1/156 | loss 1.4508 | lr 6.583e-04 | logit_scale 80.00 | cuda_mem 98MB
+06:28:25 | INFO | ep 49 it 100/156 | loss 1.4592 | lr 6.539e-04 | logit_scale 80.84 | cuda_mem 79MB
+06:29:52 | INFO | Epoch 49 done in 66.6s | avg_loss=1.5403 | top1=0.1075 top10=0.4480 top100=0.8175 | lr=6.514403e-04 | logit_scale=81.30
+06:29:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_049.pt
+06:29:52 | INFO | New best (top-100=0.8175) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:29:52 | INFO | Starting epoch 50 (different_superclass=False, augs=True, aug_policy=none)
+06:29:57 | INFO | ep 50 it 1/156 | loss 1.8009 | lr 6.514e-04 | logit_scale 81.30 | cuda_mem 98MB
+06:30:35 | INFO | ep 50 it 100/156 | loss 1.4304 | lr 6.470e-04 | logit_scale 82.03 | cuda_mem 79MB
+06:32:01 | INFO | Epoch 50 done in 66.4s | avg_loss=1.5140 | top1=0.0900 top10=0.4585 top100=0.8495 | lr=6.444538e-04 | logit_scale=82.44
+06:32:01 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_050.pt
+06:32:01 | INFO | New best (top-100=0.8495) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:32:01 | INFO | Starting epoch 51 (different_superclass=False, augs=True, aug_policy=none)
+06:32:05 | INFO | ep 51 it 1/156 | loss 1.1446 | lr 6.445e-04 | logit_scale 82.44 | cuda_mem 98MB
+06:32:44 | INFO | ep 51 it 100/156 | loss 1.4525 | lr 6.399e-04 | logit_scale 83.23 | cuda_mem 79MB
+06:34:13 | INFO | Epoch 51 done in 67.1s | avg_loss=1.4751 | top1=0.1140 top10=0.4970 top100=0.8480 | lr=6.373463e-04 | logit_scale=83.65
+06:34:13 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_051.pt
+06:34:14 | INFO | Starting epoch 52 (different_superclass=False, augs=True, aug_policy=none)
+06:34:17 | INFO | ep 52 it 1/156 | loss 1.2478 | lr 6.373e-04 | logit_scale 83.65 | cuda_mem 98MB
+06:34:56 | INFO | ep 52 it 100/156 | loss 1.4486 | lr 6.327e-04 | logit_scale 84.35 | cuda_mem 79MB
+06:36:24 | INFO | Epoch 52 done in 64.9s | avg_loss=1.4232 | top1=0.1115 top10=0.5025 top100=0.8555 | lr=6.301212e-04 | logit_scale=84.72
+06:36:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_052.pt
+06:36:24 | INFO | New best (top-100=0.8555) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:36:24 | INFO | Starting epoch 53 (different_superclass=False, augs=True, aug_policy=none)
+06:36:28 | INFO | ep 53 it 1/156 | loss 1.3815 | lr 6.301e-04 | logit_scale 84.72 | cuda_mem 98MB
+06:37:07 | INFO | ep 53 it 100/156 | loss 1.6703 | lr 6.254e-04 | logit_scale 85.40 | cuda_mem 79MB
+06:38:33 | INFO | Epoch 53 done in 64.5s | avg_loss=1.4008 | top1=0.1110 top10=0.5075 top100=0.8535 | lr=6.227822e-04 | logit_scale=85.79
+06:38:34 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_053.pt
+06:38:34 | INFO | Starting epoch 54 (different_superclass=False, augs=True, aug_policy=none)
+06:38:37 | INFO | ep 54 it 1/156 | loss 1.1104 | lr 6.228e-04 | logit_scale 85.79 | cuda_mem 98MB
+06:39:16 | INFO | ep 54 it 100/156 | loss 1.3199 | lr 6.180e-04 | logit_scale 86.51 | cuda_mem 79MB
+06:40:42 | INFO | Epoch 54 done in 65.4s | avg_loss=1.3431 | top1=0.1130 top10=0.5145 top100=0.8885 | lr=6.153329e-04 | logit_scale=86.97
+06:40:42 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_054.pt
+06:40:42 | INFO | New best (top-100=0.8885) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:40:42 | INFO | Starting epoch 55 (different_superclass=False, augs=True, aug_policy=none)
+06:40:46 | INFO | ep 55 it 1/156 | loss 1.5106 | lr 6.153e-04 | logit_scale 86.97 | cuda_mem 98MB
+06:41:24 | INFO | ep 55 it 100/156 | loss 1.4309 | lr 6.105e-04 | logit_scale 87.74 | cuda_mem 79MB
+06:42:51 | INFO | Epoch 55 done in 65.8s | avg_loss=1.3203 | top1=0.1205 top10=0.5330 top100=0.8725 | lr=6.077770e-04 | logit_scale=88.14
+06:42:51 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_055.pt
+06:42:51 | INFO | Starting epoch 56 (different_superclass=False, augs=True, aug_policy=none)
+06:42:55 | INFO | ep 56 it 1/156 | loss 1.1991 | lr 6.078e-04 | logit_scale 88.14 | cuda_mem 98MB
+06:43:33 | INFO | ep 56 it 100/156 | loss 1.0886 | lr 6.029e-04 | logit_scale 88.73 | cuda_mem 79MB
+06:45:00 | INFO | Epoch 56 done in 66.3s | avg_loss=1.3012 | top1=0.1205 top10=0.5050 top100=0.8665 | lr=6.001182e-04 | logit_scale=89.13
+06:45:00 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_056.pt
+06:45:00 | INFO | Starting epoch 57 (different_superclass=False, augs=True, aug_policy=none)
+06:45:04 | INFO | ep 57 it 1/156 | loss 1.4860 | lr 6.001e-04 | logit_scale 89.13 | cuda_mem 98MB
+06:45:43 | INFO | ep 57 it 100/156 | loss 1.4219 | lr 5.952e-04 | logit_scale 89.90 | cuda_mem 79MB
+06:47:09 | INFO | Epoch 57 done in 66.7s | avg_loss=1.2465 | top1=0.1170 top10=0.5190 top100=0.8720 | lr=5.923604e-04 | logit_scale=90.36
+06:47:09 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_057.pt
+06:47:09 | INFO | Starting epoch 58 (different_superclass=False, augs=True, aug_policy=none)
+06:47:13 | INFO | ep 58 it 1/156 | loss 1.2018 | lr 5.924e-04 | logit_scale 90.36 | cuda_mem 98MB
+06:47:51 | INFO | ep 58 it 100/156 | loss 1.3731 | lr 5.873e-04 | logit_scale 91.15 | cuda_mem 79MB
+06:49:18 | INFO | Epoch 58 done in 64.7s | avg_loss=1.1896 | top1=0.1280 top10=0.5500 top100=0.8925 | lr=5.845074e-04 | logit_scale=91.58
+06:49:18 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_058.pt
+06:49:18 | INFO | New best (top-100=0.8925) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:49:18 | INFO | Starting epoch 59 (different_superclass=False, augs=True, aug_policy=none)
+06:49:23 | INFO | ep 59 it 1/156 | loss 1.0552 | lr 5.845e-04 | logit_scale 91.58 | cuda_mem 98MB
+06:50:01 | INFO | ep 59 it 100/156 | loss 1.0916 | lr 5.794e-04 | logit_scale 92.29 | cuda_mem 79MB
+06:51:29 | INFO | Epoch 59 done in 65.5s | avg_loss=1.1435 | top1=0.1375 top10=0.5755 top100=0.8930 | lr=5.765630e-04 | logit_scale=92.83
+06:51:30 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_059.pt
+06:51:30 | INFO | New best (top-100=0.8930) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:51:30 | INFO | Starting epoch 60 (different_superclass=False, augs=True, aug_policy=none)
+06:51:34 | INFO | ep 60 it 1/156 | loss 1.1376 | lr 5.766e-04 | logit_scale 92.83 | cuda_mem 98MB
+06:52:12 | INFO | ep 60 it 100/156 | loss 1.1345 | lr 5.714e-04 | logit_scale 93.38 | cuda_mem 79MB
+06:53:40 | INFO | Epoch 60 done in 64.5s | avg_loss=1.1395 | top1=0.1095 top10=0.5335 top100=0.8870 | lr=5.685313e-04 | logit_scale=93.96
+06:53:40 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_060.pt
+06:53:40 | INFO | Starting epoch 61 (different_superclass=False, augs=True, aug_policy=none)
+06:53:44 | INFO | ep 61 it 1/156 | loss 1.3856 | lr 5.685e-04 | logit_scale 93.96 | cuda_mem 98MB
+06:54:22 | INFO | ep 61 it 100/156 | loss 1.2167 | lr 5.633e-04 | logit_scale 94.86 | cuda_mem 79MB
+06:55:49 | INFO | Epoch 61 done in 65.5s | avg_loss=1.0952 | top1=0.1405 top10=0.5505 top100=0.8900 | lr=5.604162e-04 | logit_scale=95.12
+06:55:50 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_061.pt
+06:55:50 | INFO | Starting epoch 62 (different_superclass=False, augs=True, aug_policy=none)
+06:55:54 | INFO | ep 62 it 1/156 | loss 1.1733 | lr 5.604e-04 | logit_scale 95.12 | cuda_mem 98MB
+06:56:33 | INFO | ep 62 it 100/156 | loss 1.1590 | lr 5.552e-04 | logit_scale 95.93 | cuda_mem 79MB
+06:58:00 | INFO | Epoch 62 done in 65.6s | avg_loss=1.0661 | top1=0.1485 top10=0.5935 top100=0.9000 | lr=5.522217e-04 | logit_scale=96.25
+06:58:00 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_062.pt
+06:58:01 | INFO | New best (top-100=0.9000) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+06:58:01 | INFO | Starting epoch 63 (different_superclass=False, augs=True, aug_policy=none)
+06:58:05 | INFO | ep 63 it 1/156 | loss 1.0614 | lr 5.522e-04 | logit_scale 96.25 | cuda_mem 98MB
+06:58:43 | INFO | ep 63 it 100/156 | loss 1.1047 | lr 5.469e-04 | logit_scale 96.73 | cuda_mem 79MB
+07:00:14 | INFO | Epoch 63 done in 65.1s | avg_loss=1.0518 | top1=0.1305 top10=0.5845 top100=0.9090 | lr=5.439520e-04 | logit_scale=97.25
+07:00:14 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_063.pt
+07:00:14 | INFO | New best (top-100=0.9090) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:00:14 | INFO | Starting epoch 64 (different_superclass=False, augs=True, aug_policy=none)
+07:00:18 | INFO | ep 64 it 1/156 | loss 0.6864 | lr 5.440e-04 | logit_scale 97.25 | cuda_mem 98MB
+07:00:57 | INFO | ep 64 it 100/156 | loss 0.9818 | lr 5.386e-04 | logit_scale 98.16 | cuda_mem 79MB
+07:02:24 | INFO | Epoch 64 done in 65.9s | avg_loss=0.9956 | top1=0.1430 top10=0.5895 top100=0.9050 | lr=5.356111e-04 | logit_scale=98.43
+07:02:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_064.pt
+07:02:24 | INFO | Starting epoch 65 (different_superclass=False, augs=True, aug_policy=none)
+07:02:27 | INFO | ep 65 it 1/156 | loss 1.1181 | lr 5.356e-04 | logit_scale 98.43 | cuda_mem 98MB
+07:03:06 | INFO | ep 65 it 100/156 | loss 0.8255 | lr 5.302e-04 | logit_scale 99.09 | cuda_mem 79MB
+07:04:33 | INFO | Epoch 65 done in 66.5s | avg_loss=0.9845 | top1=0.1425 top10=0.5860 top100=0.9200 | lr=5.272031e-04 | logit_scale=99.48
+07:04:33 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_065.pt
+07:04:33 | INFO | New best (top-100=0.9200) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:04:33 | INFO | Starting epoch 66 (different_superclass=False, augs=True, aug_policy=none)
+07:04:37 | INFO | ep 66 it 1/156 | loss 0.9112 | lr 5.272e-04 | logit_scale 99.48 | cuda_mem 98MB
+07:05:15 | INFO | ep 66 it 100/156 | loss 0.8314 | lr 5.218e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:06:42 | INFO | Epoch 66 done in 65.9s | avg_loss=0.9533 | top1=0.1620 top10=0.6275 top100=0.9240 | lr=5.187322e-04 | logit_scale=100.00
+07:06:42 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_066.pt
+07:06:43 | INFO | New best (top-100=0.9240) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:06:43 | INFO | Starting epoch 67 (different_superclass=False, augs=True, aug_policy=none)
+07:06:47 | INFO | ep 67 it 1/156 | loss 1.1814 | lr 5.187e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:07:25 | INFO | ep 67 it 100/156 | loss 1.0554 | lr 5.133e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:08:51 | INFO | Epoch 67 done in 66.3s | avg_loss=0.9343 | top1=0.1490 top10=0.6015 top100=0.9160 | lr=5.102027e-04 | logit_scale=100.00
+07:08:51 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_067.pt
+07:08:51 | INFO | Starting epoch 68 (different_superclass=False, augs=True, aug_policy=none)
+07:08:55 | INFO | ep 68 it 1/156 | loss 0.8537 | lr 5.102e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:09:33 | INFO | ep 68 it 100/156 | loss 0.9759 | lr 5.047e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:10:57 | INFO | Epoch 68 done in 66.0s | avg_loss=0.8980 | top1=0.1645 top10=0.6425 top100=0.9345 | lr=5.016188e-04 | logit_scale=100.00
+07:10:58 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_068.pt
+07:10:58 | INFO | New best (top-100=0.9345) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:10:58 | INFO | Starting epoch 69 (different_superclass=False, augs=True, aug_policy=none)
+07:11:03 | INFO | ep 69 it 1/156 | loss 0.8078 | lr 5.016e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:11:41 | INFO | ep 69 it 100/156 | loss 0.5996 | lr 4.961e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:13:07 | INFO | Epoch 69 done in 66.7s | avg_loss=0.8699 | top1=0.1650 top10=0.6475 top100=0.9310 | lr=4.929846e-04 | logit_scale=100.00
+07:13:07 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_069.pt
+07:13:07 | INFO | Starting epoch 70 (different_superclass=False, augs=True, aug_policy=none)
+07:13:11 | INFO | ep 70 it 1/156 | loss 0.9783 | lr 4.930e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:13:50 | INFO | ep 70 it 100/156 | loss 0.7214 | lr 4.874e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:15:17 | INFO | Epoch 70 done in 66.6s | avg_loss=0.8487 | top1=0.1655 top10=0.6545 top100=0.9315 | lr=4.843046e-04 | logit_scale=100.00
+07:15:17 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_070.pt
+07:15:17 | INFO | Starting epoch 71 (different_superclass=False, augs=True, aug_policy=none)
+07:15:21 | INFO | ep 71 it 1/156 | loss 0.8100 | lr 4.843e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:15:59 | INFO | ep 71 it 100/156 | loss 0.8394 | lr 4.787e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:17:26 | INFO | Epoch 71 done in 66.4s | avg_loss=0.8198 | top1=0.1545 top10=0.6755 top100=0.9425 | lr=4.755830e-04 | logit_scale=100.00
+07:17:26 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_071.pt
+07:17:26 | INFO | New best (top-100=0.9425) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:17:26 | INFO | Starting epoch 72 (different_superclass=False, augs=True, aug_policy=none)
+07:17:30 | INFO | ep 72 it 1/156 | loss 0.8502 | lr 4.756e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:18:09 | INFO | ep 72 it 100/156 | loss 0.9128 | lr 4.700e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:19:36 | INFO | Epoch 72 done in 67.8s | avg_loss=0.8041 | top1=0.1695 top10=0.6625 top100=0.9365 | lr=4.668241e-04 | logit_scale=100.00
+07:19:36 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_072.pt
+07:19:36 | INFO | Starting epoch 73 (different_superclass=False, augs=True, aug_policy=none)
+07:19:40 | INFO | ep 73 it 1/156 | loss 0.9736 | lr 4.668e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:20:19 | INFO | ep 73 it 100/156 | loss 0.9466 | lr 4.612e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:21:45 | INFO | Epoch 73 done in 67.5s | avg_loss=0.7702 | top1=0.1620 top10=0.6320 top100=0.9370 | lr=4.580323e-04 | logit_scale=100.00
+07:21:45 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_073.pt
+07:21:45 | INFO | Starting epoch 74 (different_superclass=False, augs=True, aug_policy=none)
+07:21:49 | INFO | ep 74 it 1/156 | loss 0.6477 | lr 4.580e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:22:27 | INFO | ep 74 it 100/156 | loss 0.6975 | lr 4.524e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:23:52 | INFO | Epoch 74 done in 65.7s | avg_loss=0.7469 | top1=0.1740 top10=0.6730 top100=0.9445 | lr=4.492120e-04 | logit_scale=100.00
+07:23:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_074.pt
+07:23:52 | INFO | New best (top-100=0.9445) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:23:52 | INFO | Starting epoch 75 (different_superclass=False, augs=True, aug_policy=none)
+07:23:56 | INFO | ep 75 it 1/156 | loss 0.7846 | lr 4.492e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:24:34 | INFO | ep 75 it 100/156 | loss 0.5485 | lr 4.435e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:26:00 | INFO | Epoch 75 done in 67.0s | avg_loss=0.7247 | top1=0.1760 top10=0.6845 top100=0.9520 | lr=4.403675e-04 | logit_scale=100.00
+07:26:00 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_075.pt
+07:26:00 | INFO | New best (top-100=0.9520) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:26:00 | INFO | Starting epoch 76 (different_superclass=False, augs=True, aug_policy=none)
+07:26:04 | INFO | ep 76 it 1/156 | loss 0.6532 | lr 4.404e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:26:42 | INFO | ep 76 it 100/156 | loss 0.7212 | lr 4.347e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:28:07 | INFO | Epoch 76 done in 67.2s | avg_loss=0.7142 | top1=0.1765 top10=0.6605 top100=0.9445 | lr=4.315032e-04 | logit_scale=100.00
+07:28:07 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_076.pt
+07:28:07 | INFO | Starting epoch 77 (different_superclass=False, augs=True, aug_policy=none)
+07:28:11 | INFO | ep 77 it 1/156 | loss 0.6361 | lr 4.315e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:28:50 | INFO | ep 77 it 100/156 | loss 0.7720 | lr 4.258e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:30:14 | INFO | Epoch 77 done in 66.1s | avg_loss=0.6834 | top1=0.1875 top10=0.6955 top100=0.9585 | lr=4.226235e-04 | logit_scale=100.00
+07:30:14 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_077.pt
+07:30:14 | INFO | New best (top-100=0.9585) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:30:14 | INFO | Starting epoch 78 (different_superclass=False, augs=True, aug_policy=none)
+07:30:18 | INFO | ep 78 it 1/156 | loss 0.5709 | lr 4.226e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:30:56 | INFO | ep 78 it 100/156 | loss 0.6672 | lr 4.169e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:32:21 | INFO | Epoch 78 done in 66.6s | avg_loss=0.6695 | top1=0.1815 top10=0.6945 top100=0.9555 | lr=4.137328e-04 | logit_scale=100.00
+07:32:22 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_078.pt
+07:32:22 | INFO | Starting epoch 79 (different_superclass=False, augs=True, aug_policy=none)
+07:32:25 | INFO | ep 79 it 1/156 | loss 0.7269 | lr 4.137e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:33:03 | INFO | ep 79 it 100/156 | loss 0.6058 | lr 4.080e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:34:29 | INFO | Epoch 79 done in 66.2s | avg_loss=0.6473 | top1=0.1865 top10=0.7125 top100=0.9600 | lr=4.048356e-04 | logit_scale=100.00
+07:34:29 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_079.pt
+07:34:29 | INFO | New best (top-100=0.9600) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:34:29 | INFO | Starting epoch 80 (different_superclass=False, augs=True, aug_policy=none)
+07:34:33 | INFO | ep 80 it 1/156 | loss 0.6453 | lr 4.048e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:35:10 | INFO | ep 80 it 100/156 | loss 0.6545 | lr 3.991e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:36:38 | INFO | Epoch 80 done in 67.6s | avg_loss=0.6111 | top1=0.1955 top10=0.7370 top100=0.9645 | lr=3.959362e-04 | logit_scale=100.00
+07:36:38 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_080.pt
+07:36:38 | INFO | New best (top-100=0.9645) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:36:38 | INFO | Starting epoch 81 (different_superclass=False, augs=True, aug_policy=none)
+07:36:41 | INFO | ep 81 it 1/156 | loss 0.4098 | lr 3.959e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:37:19 | INFO | ep 81 it 100/156 | loss 0.6541 | lr 3.902e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:38:43 | INFO | Epoch 81 done in 65.8s | avg_loss=0.6006 | top1=0.2255 top10=0.7395 top100=0.9640 | lr=3.870391e-04 | logit_scale=100.00
+07:38:43 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_081.pt
+07:38:43 | INFO | Starting epoch 82 (different_superclass=False, augs=True, aug_policy=none)
+07:38:48 | INFO | ep 82 it 1/156 | loss 0.5511 | lr 3.870e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:39:26 | INFO | ep 82 it 100/156 | loss 0.4542 | lr 3.813e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:40:52 | INFO | Epoch 82 done in 66.9s | avg_loss=0.5748 | top1=0.1910 top10=0.7290 top100=0.9665 | lr=3.781487e-04 | logit_scale=100.00
+07:40:52 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_082.pt
+07:40:52 | INFO | New best (top-100=0.9665) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:40:52 | INFO | Starting epoch 83 (different_superclass=False, augs=True, aug_policy=none)
+07:40:56 | INFO | ep 83 it 1/156 | loss 0.5812 | lr 3.781e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:41:35 | INFO | ep 83 it 100/156 | loss 0.6296 | lr 3.725e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:42:57 | INFO | Epoch 83 done in 64.9s | avg_loss=0.5781 | top1=0.1950 top10=0.7365 top100=0.9710 | lr=3.692693e-04 | logit_scale=100.00
+07:42:57 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_083.pt
+07:42:58 | INFO | New best (top-100=0.9710) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:42:58 | INFO | Starting epoch 84 (different_superclass=False, augs=True, aug_policy=none)
+07:43:01 | INFO | ep 84 it 1/156 | loss 0.6921 | lr 3.693e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:43:40 | INFO | ep 84 it 100/156 | loss 0.5249 | lr 3.636e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:45:09 | INFO | Epoch 84 done in 67.1s | avg_loss=0.5500 | top1=0.2070 top10=0.7585 top100=0.9685 | lr=3.604055e-04 | logit_scale=100.00
+07:45:09 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_084.pt
+07:45:09 | INFO | Starting epoch 85 (different_superclass=False, augs=True, aug_policy=none)
+07:45:12 | INFO | ep 85 it 1/156 | loss 0.3873 | lr 3.604e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:45:51 | INFO | ep 85 it 100/156 | loss 0.5341 | lr 3.547e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:47:17 | INFO | Epoch 85 done in 67.1s | avg_loss=0.5331 | top1=0.2070 top10=0.7620 top100=0.9790 | lr=3.515615e-04 | logit_scale=100.00
+07:47:18 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_085.pt
+07:47:18 | INFO | New best (top-100=0.9790) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+07:47:18 | INFO | Starting epoch 86 (different_superclass=False, augs=True, aug_policy=none)
+07:47:21 | INFO | ep 86 it 1/156 | loss 0.4122 | lr 3.516e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:47:59 | INFO | ep 86 it 100/156 | loss 0.5399 | lr 3.459e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:49:26 | INFO | Epoch 86 done in 66.9s | avg_loss=0.5163 | top1=0.2130 top10=0.7710 top100=0.9770 | lr=3.427419e-04 | logit_scale=100.00
+07:49:26 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_086.pt
+07:49:26 | INFO | Starting epoch 87 (different_superclass=False, augs=True, aug_policy=none)
+07:49:29 | INFO | ep 87 it 1/156 | loss 0.6007 | lr 3.427e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:50:07 | INFO | ep 87 it 100/156 | loss 0.5567 | lr 3.371e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:51:31 | INFO | Epoch 87 done in 65.5s | avg_loss=0.4988 | top1=0.2335 top10=0.7815 top100=0.9755 | lr=3.339509e-04 | logit_scale=100.00
+07:51:31 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_087.pt
+07:51:31 | INFO | Starting epoch 88 (different_superclass=False, augs=True, aug_policy=none)
+07:51:36 | INFO | ep 88 it 1/156 | loss 0.5105 | lr 3.340e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:52:14 | INFO | ep 88 it 100/156 | loss 0.4207 | lr 3.283e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:53:37 | INFO | Epoch 88 done in 66.4s | avg_loss=0.4911 | top1=0.2170 top10=0.7665 top100=0.9705 | lr=3.251929e-04 | logit_scale=100.00
+07:53:38 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_088.pt
+07:53:38 | INFO | Starting epoch 89 (different_superclass=False, augs=True, aug_policy=none)
+07:53:41 | INFO | ep 89 it 1/156 | loss 0.5652 | lr 3.252e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:54:19 | INFO | ep 89 it 100/156 | loss 0.5472 | lr 3.196e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:55:44 | INFO | Epoch 89 done in 66.2s | avg_loss=0.4787 | top1=0.2285 top10=0.7830 top100=0.9725 | lr=3.164723e-04 | logit_scale=100.00
+07:55:44 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_089.pt
+07:55:44 | INFO | Starting epoch 90 (different_superclass=False, augs=True, aug_policy=none)
+07:55:48 | INFO | ep 90 it 1/156 | loss 0.4447 | lr 3.165e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:56:26 | INFO | ep 90 it 100/156 | loss 0.3882 | lr 3.109e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:57:51 | INFO | Epoch 90 done in 66.4s | avg_loss=0.4542 | top1=0.2290 top10=0.7980 top100=0.9775 | lr=3.077934e-04 | logit_scale=100.00
+07:57:51 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_090.pt
+07:57:51 | INFO | Starting epoch 91 (different_superclass=False, augs=True, aug_policy=none)
+07:57:55 | INFO | ep 91 it 1/156 | loss 0.5273 | lr 3.078e-04 | logit_scale 100.00 | cuda_mem 98MB
+07:58:33 | INFO | ep 91 it 100/156 | loss 0.3555 | lr 3.023e-04 | logit_scale 100.00 | cuda_mem 79MB
+07:59:58 | INFO | Epoch 91 done in 66.4s | avg_loss=0.4327 | top1=0.2290 top10=0.7975 top100=0.9760 | lr=2.991605e-04 | logit_scale=100.00
+07:59:58 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_091.pt
+07:59:58 | INFO | Starting epoch 92 (different_superclass=False, augs=True, aug_policy=none)
+08:00:02 | INFO | ep 92 it 1/156 | loss 0.3856 | lr 2.992e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:00:39 | INFO | ep 92 it 100/156 | loss 0.4353 | lr 2.937e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:02:03 | INFO | Epoch 92 done in 66.4s | avg_loss=0.4362 | top1=0.2320 top10=0.7920 top100=0.9805 | lr=2.905779e-04 | logit_scale=100.00
+08:02:04 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_092.pt
+08:02:04 | INFO | New best (top-100=0.9805) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:02:04 | INFO | Starting epoch 93 (different_superclass=False, augs=True, aug_policy=none)
+08:02:07 | INFO | ep 93 it 1/156 | loss 0.4363 | lr 2.906e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:02:46 | INFO | ep 93 it 100/156 | loss 0.6882 | lr 2.851e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:04:10 | INFO | Epoch 93 done in 66.1s | avg_loss=0.4280 | top1=0.2245 top10=0.8010 top100=0.9800 | lr=2.820498e-04 | logit_scale=100.00
+08:04:10 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_093.pt
+08:04:10 | INFO | Starting epoch 94 (different_superclass=False, augs=True, aug_policy=none)
+08:04:14 | INFO | ep 94 it 1/156 | loss 0.3766 | lr 2.820e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:04:52 | INFO | ep 94 it 100/156 | loss 0.5251 | lr 2.766e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:06:18 | INFO | Epoch 94 done in 66.3s | avg_loss=0.3934 | top1=0.2315 top10=0.8050 top100=0.9800 | lr=2.735805e-04 | logit_scale=100.00
+08:06:18 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_094.pt
+08:06:18 | INFO | Starting epoch 95 (different_superclass=False, augs=True, aug_policy=none)
+08:06:22 | INFO | ep 95 it 1/156 | loss 0.2986 | lr 2.736e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:07:00 | INFO | ep 95 it 100/156 | loss 0.4285 | lr 2.682e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:08:24 | INFO | Epoch 95 done in 65.8s | avg_loss=0.3986 | top1=0.2490 top10=0.8120 top100=0.9805 | lr=2.651742e-04 | logit_scale=100.00
+08:08:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_095.pt
+08:08:24 | INFO | Starting epoch 96 (different_superclass=False, augs=True, aug_policy=none)
+08:08:28 | INFO | ep 96 it 1/156 | loss 0.3189 | lr 2.652e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:09:06 | INFO | ep 96 it 100/156 | loss 0.3909 | lr 2.598e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:10:31 | INFO | Epoch 96 done in 66.4s | avg_loss=0.3873 | top1=0.2600 top10=0.8275 top100=0.9865 | lr=2.568350e-04 | logit_scale=100.00
+08:10:31 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_096.pt
+08:10:31 | INFO | New best (top-100=0.9865) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:10:31 | INFO | Starting epoch 97 (different_superclass=False, augs=True, aug_policy=none)
+08:10:35 | INFO | ep 97 it 1/156 | loss 0.4164 | lr 2.568e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:11:13 | INFO | ep 97 it 100/156 | loss 0.2672 | lr 2.515e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:12:37 | INFO | Epoch 97 done in 66.9s | avg_loss=0.3717 | top1=0.2400 top10=0.8245 top100=0.9840 | lr=2.485672e-04 | logit_scale=100.00
+08:12:37 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_097.pt
+08:12:37 | INFO | Starting epoch 98 (different_superclass=False, augs=True, aug_policy=none)
+08:12:41 | INFO | ep 98 it 1/156 | loss 0.3417 | lr 2.486e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:13:20 | INFO | ep 98 it 100/156 | loss 0.3468 | lr 2.433e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:14:44 | INFO | Epoch 98 done in 66.3s | avg_loss=0.3613 | top1=0.2530 top10=0.8300 top100=0.9910 | lr=2.403747e-04 | logit_scale=100.00
+08:14:44 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_098.pt
+08:14:44 | INFO | New best (top-100=0.9910) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:14:44 | INFO | Starting epoch 99 (different_superclass=False, augs=True, aug_policy=none)
+08:14:48 | INFO | ep 99 it 1/156 | loss 0.3635 | lr 2.404e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:15:25 | INFO | ep 99 it 100/156 | loss 0.3501 | lr 2.352e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:16:51 | INFO | Epoch 99 done in 66.8s | avg_loss=0.3587 | top1=0.2645 top10=0.8395 top100=0.9880 | lr=2.322617e-04 | logit_scale=100.00
+08:16:51 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_099.pt
+08:16:51 | INFO | Starting epoch 100 (different_superclass=False, augs=True, aug_policy=none)
+08:16:55 | INFO | ep 100 it 1/156 | loss 0.2960 | lr 2.323e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:17:33 | INFO | ep 100 it 100/156 | loss 0.3873 | lr 2.271e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:18:59 | INFO | Epoch 100 done in 66.2s | avg_loss=0.3409 | top1=0.2590 top10=0.8370 top100=0.9895 | lr=2.242322e-04 | logit_scale=100.00
+08:18:59 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_100.pt
+08:18:59 | INFO | Starting epoch 101 (different_superclass=False, augs=True, aug_policy=none)
+08:19:02 | INFO | ep 101 it 1/156 | loss 0.3391 | lr 2.242e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:19:40 | INFO | ep 101 it 100/156 | loss 0.2970 | lr 2.191e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:21:05 | INFO | Epoch 101 done in 66.3s | avg_loss=0.3394 | top1=0.2745 top10=0.8690 top100=0.9910 | lr=2.162901e-04 | logit_scale=100.00
+08:21:06 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_101.pt
+08:21:06 | INFO | Starting epoch 102 (different_superclass=False, augs=True, aug_policy=none)
+08:21:09 | INFO | ep 102 it 1/156 | loss 0.3295 | lr 2.163e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:21:47 | INFO | ep 102 it 100/156 | loss 0.3231 | lr 2.112e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:23:12 | INFO | Epoch 102 done in 66.2s | avg_loss=0.3061 | top1=0.2615 top10=0.8650 top100=0.9940 | lr=2.084395e-04 | logit_scale=100.00
+08:23:12 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_102.pt
+08:23:13 | INFO | New best (top-100=0.9940) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:23:13 | INFO | Starting epoch 103 (different_superclass=False, augs=True, aug_policy=none)
+08:23:17 | INFO | ep 103 it 1/156 | loss 0.3010 | lr 2.084e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:23:55 | INFO | ep 103 it 100/156 | loss 0.3545 | lr 2.035e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:25:22 | INFO | Epoch 103 done in 66.4s | avg_loss=0.3160 | top1=0.2830 top10=0.8680 top100=0.9910 | lr=2.006841e-04 | logit_scale=100.00
+08:25:22 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_103.pt
+08:25:22 | INFO | Starting epoch 104 (different_superclass=False, augs=True, aug_policy=none)
+08:25:26 | INFO | ep 104 it 1/156 | loss 0.4175 | lr 2.007e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:26:06 | INFO | ep 104 it 100/156 | loss 0.2951 | lr 1.958e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:27:34 | INFO | Epoch 104 done in 68.8s | avg_loss=0.2935 | top1=0.2770 top10=0.8530 top100=0.9945 | lr=1.930279e-04 | logit_scale=100.00
+08:27:35 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_104.pt
+08:27:35 | INFO | New best (top-100=0.9945) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:27:35 | INFO | Starting epoch 105 (different_superclass=False, augs=True, aug_policy=none)
+08:27:39 | INFO | ep 105 it 1/156 | loss 0.2655 | lr 1.930e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:28:18 | INFO | ep 105 it 100/156 | loss 0.2977 | lr 1.882e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:29:44 | INFO | Epoch 105 done in 66.5s | avg_loss=0.2887 | top1=0.2850 top10=0.8805 top100=0.9970 | lr=1.854747e-04 | logit_scale=100.00
+08:29:45 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_105.pt
+08:29:45 | INFO | New best (top-100=0.9970) → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/best.pt
+08:29:45 | INFO | Starting epoch 106 (different_superclass=False, augs=True, aug_policy=none)
+08:29:49 | INFO | ep 106 it 1/156 | loss 0.3594 | lr 1.855e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:30:27 | INFO | ep 106 it 100/156 | loss 0.2336 | lr 1.807e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:31:55 | INFO | Epoch 106 done in 66.2s | avg_loss=0.2868 | top1=0.3100 top10=0.8820 top100=0.9910 | lr=1.780282e-04 | logit_scale=100.00
+08:31:55 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_106.pt
+08:31:55 | INFO | Starting epoch 107 (different_superclass=False, augs=True, aug_policy=none)
+08:31:59 | INFO | ep 107 it 1/156 | loss 0.3198 | lr 1.780e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:32:37 | INFO | ep 107 it 100/156 | loss 0.2234 | lr 1.733e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:34:04 | INFO | Epoch 107 done in 66.6s | avg_loss=0.2793 | top1=0.3050 top10=0.8940 top100=0.9945 | lr=1.706921e-04 | logit_scale=100.00
+08:34:04 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_107.pt
+08:34:04 | INFO | Starting epoch 108 (different_superclass=False, augs=True, aug_policy=none)
+08:34:08 | INFO | ep 108 it 1/156 | loss 0.2796 | lr 1.707e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:34:47 | INFO | ep 108 it 100/156 | loss 0.3925 | lr 1.660e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:36:14 | INFO | Epoch 108 done in 67.2s | avg_loss=0.2686 | top1=0.2850 top10=0.8785 top100=0.9945 | lr=1.634700e-04 | logit_scale=100.00
+08:36:14 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_108.pt
+08:36:14 | INFO | Starting epoch 109 (different_superclass=False, augs=True, aug_policy=none)
+08:36:18 | INFO | ep 109 it 1/156 | loss 0.2640 | lr 1.635e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:36:56 | INFO | ep 109 it 100/156 | loss 0.2934 | lr 1.589e-04 | logit_scale 100.00 | cuda_mem 79MB
+08:38:24 | INFO | Epoch 109 done in 66.6s | avg_loss=0.2654 | top1=0.2895 top10=0.8955 top100=0.9960 | lr=1.563655e-04 | logit_scale=100.00
+08:38:24 | INFO | Saved checkpoint → runs/final_150e/p3-final-e150-lr8e-4-bs32x8-augNONE-swap005x02/epoch_109.pt
+08:38:24 | INFO | Starting epoch 110 (different_superclass=False, augs=True, aug_policy=none)
+08:38:28 | INFO | ep 110 it 1/156 | loss 0.2689 | lr 1.564e-04 | logit_scale 100.00 | cuda_mem 98MB
+08:39:06 | INFO | ep 110 it 100/156 | loss 0.2199 | lr 1.519e-04 | logit_scale 100.00 | cuda_mem 79MB

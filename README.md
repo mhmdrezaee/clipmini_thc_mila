@@ -11,26 +11,36 @@ poetry install -E clip
 
 ## Train (GPU)
 ```bash
-poetry run python train.py \
-  --data_root ./data \
-  --epochs 10 \
-  --batch_size 256 \
-  --emb_dim 256 \
-  --use_micro_vit \
-  --text_encoder tiny \
-  --lr 5e-4 --weight_decay 0.05 --temperature 0.07 \
-  --amp --accum_steps 1 --warmup_steps 500 \
-  --train_size 50000 --eval_size 2000 \
-  --output_dir ./runs/exp1
+python train.py \
+   --data_root ./data  \
+  --output_dir ./runs/name   \
+  --run_name name_for_this_run   \
+  --epochs 150   \
+  --batch_size 128 \
+  --accum_steps 2 \
+  --amp   \
+  --lr 8e-4 \
+  --min_lr 1e-6 \
+  --warmup_steps 700   \
+  --weight_decay 0.05   \
+  --curriculum_epochs 3  \
+   --use_augs 1 \
+   --aug_policy none   \
+   --mixup 0   \
+   --use_swap_margin 1 \
+   --swap_margin 0.05 \
+   --swap_weight 0.20   \
+   --eval_size 2000
+
 ```
 
 ## Evaluate
 ```bash
-poetry run python evaluate.py \
-  --checkpoint ./runs/exp1/best.pt \
+python evaluate.py \
+  --checkpoint ./runs/final_150e/best_config/best.pt \
   --data_root ./data \
-  --text_encoder tiny \
-  --eval_size 5000
+  --eval_size 10
+
 ```
 
 ## Notes
@@ -38,5 +48,3 @@ poetry run python evaluate.py \
 - Contrastive loss is bidirectional (image↔text).
 - Augmentations apply before concatenating the two images.
 - AMP and gradient accumulation are available for larger effective batches.
-
-

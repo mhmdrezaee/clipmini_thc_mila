@@ -18,6 +18,7 @@ class TrainConfig:
     warmup_steps: int = 500  # linear warmup
     curriculum_epochs: int = 10  # early epochs: harder negatives (diff superclasses)
     use_augs: bool = True
+    aug_policy: str = "none"
     mixup: int = 1
     mixup_alpha: float = 0.4
     mixup_start_epoch: int = 2
@@ -39,8 +40,8 @@ class TrainConfig:
     swap_weight: float = 0.5  # weight for swap hinge term
 
     use_partial_softmax: bool = True
-    partial_m: int = 8  # # semi-hard negatives per sample
-    partial_weight: float = 1.0  # weight for partial softmax term
+    partial_m: int = 8  # semi-hard negatives per sample
+    partial_weight: float = 1.0  # weight for a partial softmax term
 
     label_smoothing_eps: float = 0.0  # 0.05 is a good start; 0.0 disables
 
