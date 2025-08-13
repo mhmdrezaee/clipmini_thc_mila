@@ -24,7 +24,7 @@ def build_loader(cfg, hard: bool):
     ds = PairedCIFAR100(
         root=cfg.data_root,
         train=True,
-        size=20000,
+        size=40000,
         different_superclass=hard,
         augment=bool(cfg.use_augs),
         aug_policy=getattr(cfg, "aug_policy", "light_basic"),  # <<< pass it
@@ -40,7 +40,7 @@ def steps_per_epoch_estimate(cfg):
     ds = PairedCIFAR100(
         root=cfg.data_root,
         train=True,
-        size=20000,
+        size=40000,
         different_superclass=True,
         augment=bool(cfg.use_augs),
         aug_policy=getattr(cfg, "aug_policy", "light_basic"),  # <<< pass it
